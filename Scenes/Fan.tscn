@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bww2ytek0n024"]
 
-[ext_resource type="Script" path="res://Scenes/fan.gd" id="1_cdjk6"]
+[ext_resource type="Script" path="res://Scripts/fan.gd" id="1_cdjk6"]
 [ext_resource type="Texture2D" uid="uid://uehfqq46wyvw" path="res://Art/fan-temp-art.jpg" id="2_dnb1t"]
 
 [node name="Fan0_Area2D" type="Area2D"]

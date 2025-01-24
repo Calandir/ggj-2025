@@ -1,9 +1,12 @@
 extends Area2D
 
 
+# If fan is on/off
+@export var fan_is_on: bool = false
 
 # Wind force at 0 distance from fan (will fall off the farther bubble is from fan).
-var wind_force = 60
+@export var wind_force: float = 60.0
+
 
 # Fan will only push bubble that are in range given by this value.
 var fan_max_range = 650
