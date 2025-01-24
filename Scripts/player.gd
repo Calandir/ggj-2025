@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const TURN_WITH_SEPARATE_CONTROLS: bool = true
+const TURN_WITH_SEPARATE_CONTROLS: bool = false
 
 const SPEED = 300.0
 
