@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=4 format=3 uid="uid://bi38mugybmfl0"]
 
-[ext_resource type="PackedScene" uid="uid://dthq8fdiqs16e" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
-[ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
+[ext_resource type="PackedScene" uid="uid://dnx5laydjnp4s" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
+[ext_resource type="PackedScene" path="res://Scenes/Fan.tscn" id="2_acuum"]
+[ext_resource type="Texture2D" uid="uid://bw0ubkqw6fdtb" path="res://Art/playing_field.png" id="3_b8bjl"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -11,5 +12,9 @@
 gravity_scale = 0.0
 
 [node name="Fan0_Area2D" parent="." instance=ExtResource("2_acuum")]
-position = Vector2(369, 294)
-rotation = 3.44528
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-0.500008, -0.500016)
+scale = Vector2(1.13965, 0.845052)
+texture = ExtResource("3_b8bjl")
