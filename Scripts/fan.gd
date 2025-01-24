@@ -9,10 +9,10 @@ extends Area2D
 
 
 # Fan will only push bubble that are in range given by this value.
-var fan_max_range = 650
+var fan_max_range: float = 650.0
 
 # Keep track of bubbles in current fan area.
-var _bubbles_in_fan = []
+var _bubbles_in_fan  = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,20 +26,20 @@ func _process(delta: float) -> void:
 		_push_bubble(bubble, delta)
 
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.append(body)
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.erase(body)
 
 
-func _push_bubble(bubble: RigidBody2D, delta: float):
+func _push_bubble(bubble: RigidBody2D, delta: float) -> void:
 	# Strength of fan is based on how close bubble is to the fan.
 	var fan_bubble_vec2 = self.global_position - bubble.global_position
 	var distance_from_fan = sqrt(fan_bubble_vec2.x ** 2 + fan_bubble_vec2.y ** 2)
-	var fan_strength = max((fan_max_range - distance_from_fan) / fan_max_range * wind_force, 0)
+	var fan_strength = max((fan_max_range - distance_from_fan) / fan_max_range * wind_force, 0.0)
 
 	# Get the fan force vector based on the rotation of the fan.
 	var fan_rotation_angle = self.global_rotation  # radians
