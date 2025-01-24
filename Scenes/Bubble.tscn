@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://u40r0c7xhdmk" path="res://Art/bubble_01.png" id="2_ty473"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wiy4"]
-radius = 70.0
+radius = 58.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_al2sf"]
 atlas = ExtResource("2_ty473")
