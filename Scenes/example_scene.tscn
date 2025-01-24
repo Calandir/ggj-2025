@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=8 format=3 uid="uid://bi38mugybmfl0"]
 
 [ext_resource type="Script" path="res://Scenes/fan.gd" id="2_63tvy"]
 [ext_resource type="Texture2D" uid="uid://6oyk5sviab1c" path="res://Art/bubble-temp-art.png" id="2_ubw16"]
@@ -9,6 +9,12 @@ radius = 70.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoh48"]
 size = Vector2(417.25, 115.25)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i8nin"]
+bounce = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la6x1"]
+size = Vector2(1199, 22)
 
 [node name="MainScene" type="Node2D"]
 
@@ -77,6 +83,14 @@ shape = SubResource("RectangleShape2D_yoh48")
 position = Vector2(-243, 0)
 scale = Vector2(0.16, 0.4)
 texture = ExtResource("3_min3g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-602, -329)
+physics_material_override = SubResource("PhysicsMaterial_i8nin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(586.5, 7)
+shape = SubResource("RectangleShape2D_la6x1")
 
 [connection signal="body_entered" from="Fan0_Area2D" to="Fan0_Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Fan0_Area2D" to="Fan0_Area2D" method="_on_Area2D_body_exited"]
