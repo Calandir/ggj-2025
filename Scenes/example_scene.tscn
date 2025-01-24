@@ -1,97 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=3 format=3 uid="uid://bi38mugybmfl0"]
 
-[ext_resource type="Script" path="res://Scenes/fan.gd" id="2_63tvy"]
-[ext_resource type="Texture2D" uid="uid://6oyk5sviab1c" path="res://Art/bubble-temp-art.png" id="2_ubw16"]
-[ext_resource type="Texture2D" uid="uid://uehfqq46wyvw" path="res://Art/fan-temp-art.jpg" id="3_min3g"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0wiy4"]
-radius = 70.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoh48"]
-size = Vector2(417.25, 115.25)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i8nin"]
-bounce = 100.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_la6x1"]
-size = Vector2(1199, 22)
+[ext_resource type="PackedScene" uid="uid://dthq8fdiqs16e" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
+[ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
 
 [node name="MainScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Bubble0_RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(-1, 180)
-mass = 0.1
-gravity_scale = -0.1
+[node name="Bubble0_RigidBody2D" parent="." instance=ExtResource("1_b6d3v")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble0_RigidBody2D"]
-shape = SubResource("CircleShape2D_0wiy4")
-debug_color = Color(0.0156863, 0.592157, 0.745098, 0.611765)
-
-[node name="Sprite2D" type="Sprite2D" parent="Bubble0_RigidBody2D/CollisionShape2D"]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_ubw16")
-
-[node name="Bubble1_RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(221, 258)
-mass = 0.1
-gravity_scale = -0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble1_RigidBody2D"]
-shape = SubResource("CircleShape2D_0wiy4")
-debug_color = Color(0.0156863, 0.592157, 0.745098, 0.611765)
-
-[node name="Sprite2D" type="Sprite2D" parent="Bubble1_RigidBody2D/CollisionShape2D"]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_ubw16")
-
-[node name="Bubble2_RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(-145, 258)
-mass = 0.1
-gravity_scale = -0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble2_RigidBody2D"]
-shape = SubResource("CircleShape2D_0wiy4")
-debug_color = Color(0.0156863, 0.592157, 0.745098, 0.611765)
-
-[node name="Sprite2D" type="Sprite2D" parent="Bubble2_RigidBody2D/CollisionShape2D"]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_ubw16")
-
-[node name="Fan0_Area2D" type="Area2D" parent="."]
-position = Vector2(-141, 9)
-script = ExtResource("2_63tvy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fan0_Area2D"]
-shape = SubResource("RectangleShape2D_yoh48")
-
-[node name="Sprite2D" type="Sprite2D" parent="Fan0_Area2D"]
-position = Vector2(-243, 0)
-scale = Vector2(0.16, 0.4)
-texture = ExtResource("3_min3g")
-
-[node name="Fan1_Area2D" type="Area2D" parent="."]
-position = Vector2(251, -128)
-rotation = -3.25155
-script = ExtResource("2_63tvy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fan1_Area2D"]
-shape = SubResource("RectangleShape2D_yoh48")
-
-[node name="Sprite2D" type="Sprite2D" parent="Fan1_Area2D"]
-position = Vector2(-243, 0)
-scale = Vector2(0.16, 0.4)
-texture = ExtResource("3_min3g")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-602, -329)
-physics_material_override = SubResource("PhysicsMaterial_i8nin")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(586.5, 7)
-shape = SubResource("RectangleShape2D_la6x1")
-
-[connection signal="body_entered" from="Fan0_Area2D" to="Fan0_Area2D" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Fan0_Area2D" to="Fan0_Area2D" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Fan1_Area2D" to="Fan1_Area2D" method="_on_Area2D_body_entered"]
+[node name="Fan0_Area2D" parent="." instance=ExtResource("2_acuum")]
