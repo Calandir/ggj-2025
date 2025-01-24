@@ -8,5 +8,8 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Bubble0_RigidBody2D" parent="." instance=ExtResource("1_b6d3v")]
+gravity_scale = 0.0
 
 [node name="Fan0_Area2D" parent="." instance=ExtResource("2_acuum")]
+position = Vector2(369, 294)
+rotation = 3.44528
