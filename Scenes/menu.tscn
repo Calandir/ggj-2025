@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7xm4iofktrx0"]
+[gd_scene load_steps=4 format=3 uid="uid://c7xm4iofktrx0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_rnsg8"]
 [ext_resource type="FontFile" uid="uid://bsnjt655pqfy5" path="res://Resources/CursedTimerUlil-Aznm.ttf" id="2_fl752"]
+[ext_resource type="Texture2D" uid="uid://cm6fyk6vy86ve" path="res://Art/title_screen.png" id="3_tsqhi"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -13,32 +14,42 @@ grow_vertical = 2
 script = ExtResource("1_rnsg8")
 
 [node name="Button" type="Button" parent="."]
+top_level = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.203
 anchor_bottom = 0.241
-offset_left = 163.0
-offset_top = 58.0
-offset_right = 736.144
-offset_bottom = 230.832
+offset_left = 803.0
+offset_top = 290.0
+offset_right = 794.144
+offset_bottom = 222.832
 theme_override_fonts/font = ExtResource("2_fl752")
 theme_override_font_sizes/font_size = 60
 text = "START"
 
 [node name="LineEdit1" type="LineEdit" parent="."]
+top_level = true
 layout_mode = 0
-offset_left = 3.0
-offset_top = 437.0
-offset_right = 450.0
-offset_bottom = 515.0
+offset_left = 789.0
+offset_top = 501.0
+offset_right = 1049.0
+offset_bottom = 561.0
+theme_override_fonts/font = ExtResource("2_fl752")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Player 2 Name"
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 788.0
+offset_top = 416.0
+offset_right = 1048.0
+offset_bottom = 476.0
+theme_override_fonts/font = ExtResource("2_fl752")
 theme_override_font_sizes/font_size = 30
 placeholder_text = "Player 1 Name"
 
-[node name="LineEdit2" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 685.0
-offset_top = 422.0
-offset_right = 1150.0
-offset_bottom = 509.0
-theme_override_font_sizes/font_size = 30
-placeholder_text = "Player 2 Name"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 324)
+scale = Vector2(0.599236, 0.642964)
+texture = ExtResource("3_tsqhi")
