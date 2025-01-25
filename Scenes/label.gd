@@ -14,12 +14,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-
-
-
-# Reference to the Label node
-@onready var score_label = $Label
-
 # Function to update the score and update the UI text
 func update_score():
 	score += 1

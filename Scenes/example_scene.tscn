@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=6 format=3 uid="uid://bi38mugybmfl0"]
 
-[ext_resource type="PackedScene" uid="uid://dthq8fdiqs16e" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
-[ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
-[ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
+[ext_resource type="PackedScene" uid="uid://rotkws4oyuy5" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
+[ext_resource type="PackedScene" uid="uid://ctetupenyhqif" path="res://Scenes/Fan.tscn" id="2_acuum"]
+[ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
+[ext_resource type="Script" path="res://Scenes/label.gd" id="4_em4yn"]
+[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="4_t3qv7"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -19,3 +21,15 @@ rotation = 3.44528
 
 [node name="Player 1" parent="." instance=ExtResource("4_t3qv7")]
 player_num = 1
+
+[node name="Goal" parent="." instance=ExtResource("3_m40s0")]
+position = Vector2(-392, -32)
+
+[node name="Label" type="Label" parent="Goal"]
+offset_left = -169.0
+offset_top = -279.0
+offset_right = 113.0
+offset_bottom = -256.0
+script = ExtResource("4_em4yn")
+
+[connection signal="goal_scored" from="Goal" to="Goal/Label" method="_on_goal_goal_scored"]
