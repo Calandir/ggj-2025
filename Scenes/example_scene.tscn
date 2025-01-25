@@ -22,14 +22,27 @@ rotation = 3.44528
 [node name="Player 1" parent="." instance=ExtResource("4_t3qv7")]
 player_num = 1
 
-[node name="Goal" parent="." instance=ExtResource("3_m40s0")]
-position = Vector2(-392, -32)
+[node name="GoalA" parent="." instance=ExtResource("3_m40s0")]
+position = Vector2(-530, -18)
 
-[node name="Label" type="Label" parent="Goal"]
+[node name="LabelA" type="Label" parent="GoalA"]
+offset_left = -33.0
+offset_top = -293.0
+offset_right = 249.0
+offset_bottom = -270.0
+script = ExtResource("4_em4yn")
+metadata/_edit_use_anchors_ = true
+
+[node name="GoalB" parent="." instance=ExtResource("3_m40s0")]
+position = Vector2(542, -7)
+
+[node name="LabelB" type="Label" parent="GoalB"]
 offset_left = -169.0
 offset_top = -279.0
 offset_right = 113.0
 offset_bottom = -256.0
 script = ExtResource("4_em4yn")
+metadata/_edit_use_anchors_ = true
 
-[connection signal="goal_scored" from="Goal" to="Goal/Label" method="_on_goal_goal_scored"]
+[connection signal="goal_scored" from="GoalA" to="GoalA/LabelA" method="_on_goal_goal_scored"]
+[connection signal="goal_scored" from="GoalB" to="GoalB/LabelB" method="_on_goal_goal_scored"]
