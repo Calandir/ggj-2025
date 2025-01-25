@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dthq8fdiqs16e"]
+[gd_scene load_steps=4 format=3 uid="uid://dthq8fdiqs16e"]
 
 [ext_resource type="Texture2D" uid="uid://6oyk5sviab1c" path="res://Art/bubble-temp-art.png" id="1_5xnle"]
+[ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_n7mas"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wiy4"]
 radius = 58.0
@@ -10,6 +11,7 @@ position = Vector2(-1, 180)
 mass = 0.1
 gravity_scale = 0.0
 linear_damp = 0.5
+script = ExtResource("1_n7mas")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0wiy4")
