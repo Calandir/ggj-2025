@@ -20,9 +20,6 @@ var fan_max_range: float = 670.0
 # Keep track of bubbles in current fan area.
 var _bubbles_in_fan  = []
 
-# To make sure only one player can pick this up at once
-var _picked_up_by_player: Player = null
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Initialize noise generator
@@ -41,26 +38,11 @@ func _process(delta: float) -> void:
 func _on_Area2D_body_entered(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.append(body)
-	elif body is Player:
-		if _picked_up_by_player == body:
-			# Horrible hack: ignore event, it fires when picked up/down
-			return
-		
-		if not body.pickups_in_range.has(self):
-			#print(body.name + " has " + name + " in range")
-			body.pickups_in_range.append(self)
 
 
 func _on_Area2D_body_exited(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.erase(body)
-	elif body is Player:
-		if _picked_up_by_player == body:
-			# Horrible hack: ignore event, it fires when picked up/down
-			return
-			
-		#print(body.name + " has " + name + " NOT in range")
-		body.pickups_in_range.erase(self)
 
 
 func _push_bubble(bubble: RigidBody2D, delta: float) -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bww2ytek0n024"]
+[gd_scene load_steps=9 format=3 uid="uid://bww2ytek0n024"]
 
 [ext_resource type="Script" path="res://Scripts/fan.gd" id="1_cdjk6"]
 [ext_resource type="Texture2D" uid="uid://cwngcfkylc1te" path="res://Art/Fan-Final-Art.png" id="2_sfcpr"]
+[ext_resource type="Script" path="res://Scripts/fan_pickup.gd" id="3_s831a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_if032"]
 atlas = ExtResource("2_sfcpr")
@@ -32,8 +33,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Fan0_Area2D" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifbtu"]
+size = Vector2(151.999, 139.001)
+
+[node name="FanRoot" type="Node2D"]
+
+[node name="Fan0_Area2D" type="Area2D" parent="."]
 script = ExtResource("1_cdjk6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fan0_Area2D"]
+polygon = PackedVector2Array(0, 50, 600, 200, 615, 0, 600, -200, 0, -50)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
@@ -42,8 +51,15 @@ sprite_frames = SubResource("SpriteFrames_fr20a")
 autoplay = "default"
 frame_progress = 0.928675
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, 50, 600, 200, 615, 0, 600, -200, 0, -50)
+[node name="Pickup_Area2D" type="Area2D" parent="AnimatedSprite2D" node_paths=PackedStringArray("pickup_root")]
+script = ExtResource("3_s831a")
+pickup_root = NodePath("../..")
 
-[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Pickup_Area2D"]
+position = Vector2(-0.999899, 27.5)
+shape = SubResource("RectangleShape2D_ifbtu")
+
+[connection signal="body_entered" from="Fan0_Area2D" to="Fan0_Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Fan0_Area2D" to="Fan0_Area2D" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="AnimatedSprite2D/Pickup_Area2D" to="AnimatedSprite2D/Pickup_Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="AnimatedSprite2D/Pickup_Area2D" to="AnimatedSprite2D/Pickup_Area2D" method="_on_Area2D_body_exited"]
