@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ggj-2025"
-run/main_scene="res://Scenes/example_scene.tscn"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://Art/icon.svg"
+
+[autoload]
+
+Globalvars="*res://Scripts/globalvars.gd"
 
 [input]
 
