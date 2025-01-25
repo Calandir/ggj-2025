@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=11 format=3 uid="uid://bi38mugybmfl0"]
 
 [ext_resource type="Script" path="res://Scripts/debug_bubble_spawner.gd" id="1_7vexg"]
 [ext_resource type="PackedScene" uid="uid://dthq8fdiqs16e" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
-[ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
+[ext_resource type="Script" path="res://Scenes/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
+[ext_resource type="PackedScene" uid="uid://c5v01720aq21b" path="res://Scenes/bgm.tscn" id="2_tjefg"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
-[ext_resource type="Script" path="res://Scripts/label.gd" id="4_em4yn"]
+[ext_resource type="Script" path="res://Scenes/label.gd" id="4_em4yn"]
 [ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
 [ext_resource type="PackedScene" uid="uid://cvijw2frdg63b" path="res://Scenes/edge_wall.tscn" id="8_2ewpy"]
 [ext_resource type="Texture2D" uid="uid://bw0ubkqw6fdtb" path="res://Art/playing_field.png" id="9_nillc"]
@@ -15,6 +16,8 @@ script = ExtResource("1_poy5t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.6, 0.6)
+
+[node name="BGM" parent="." instance=ExtResource("2_tjefg")]
 
 [node name="Bubble0_RigidBody2D" parent="." instance=ExtResource("1_b6d3v")]
 position = Vector2(-93, 371)
@@ -64,6 +67,22 @@ metadata/_edit_use_anchors_ = true
 [node name="DebugBubbleSpawner" type="Node" parent="."]
 script = ExtResource("1_7vexg")
 
+[node name="EdgeWall" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(-35, -599)
+scale = Vector2(1.8, 1.8)
+
+[node name="EdgeWall2" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(-14, 499)
+scale = Vector2(1.8, 1.8)
+
+[node name="EdgeWall3" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(-928, -739)
+rotation = 1.5708
+
+[node name="EdgeWall4" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(995, -754)
+rotation = 1.5708
+
 [node name="Fan0_Area2D2" parent="." instance=ExtResource("2_acuum")]
 position = Vector2(832, 435)
 rotation = 3.71755
@@ -82,42 +101,13 @@ position = Vector2(9, 20)
 scale = Vector2(1.92908, 1.87854)
 texture = ExtResource("9_nillc")
 
-[node name="Walls_grp" type="Node2D" parent="."]
-
-[node name="N_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-35, -599)
-scale = Vector2(1.8, 1.8)
-
-[node name="S_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-14, 499)
-scale = Vector2(1.8, 1.8)
-
-[node name="NE_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(977, -752)
+[node name="EdgeWall5" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(-934, 679)
 rotation = 1.5708
 
-[node name="E_Goal_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(1029, 2)
+[node name="EdgeWall6" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(994, 664)
 rotation = 1.5708
-scale = Vector2(0.25, 1)
-
-[node name="SW_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-933, 662)
-rotation = 1.5708
-
-[node name="SE_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(977.97, 649)
-rotation = 1.5708
-
-[node name="S_Goal_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-971, -5)
-rotation = 1.5708
-scale = Vector2(0.26, 1)
-
-[node name="NW_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-933, -379)
-rotation = 1.5708
-scale = Vector2(0.42, 1)
 
 [connection signal="goal_scored" from="GoalA" to="GoalA/LabelA" method="_on_goal_goal_scored"]
 [connection signal="goal_scored" from="GoalB" to="GoalB/LabelB" method="_on_goal_goal_scored"]
