@@ -37,6 +37,7 @@ animations = [{
 size = Vector2(151.999, 139.001)
 
 [node name="FanRoot" type="Node2D"]
+show_behind_parent = true
 
 [node name="Fan0_Area2D" type="Area2D" parent="."]
 script = ExtResource("1_cdjk6")
@@ -47,6 +48,7 @@ polygon = PackedVector2Array(0, 50, 600, 200, 615, 0, 600, -200, 0, -50)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 rotation = 1.5708
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fr20a")
 autoplay = "default"
 frame_progress = 0.928675
