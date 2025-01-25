@@ -3,6 +3,7 @@ extends Area2D
 # Keep track of bubbles eaten by goal
 
 var score = 0
+@export var goal_num: int = 0
 
 
 

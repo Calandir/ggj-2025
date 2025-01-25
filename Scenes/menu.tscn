@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6xt6h1205gbq"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_rnsg8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rnsg8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.203
+anchor_bottom = 0.241
+offset_left = 163.0
+offset_top = 58.0
+offset_right = 736.144
+offset_bottom = 230.832
+theme_override_font_sizes/font_size = 60
+text = "START"
+
+[node name="LineEdit1" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 437.0
+offset_right = 450.0
+offset_bottom = 515.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Player 1 Name"
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 422.0
+offset_right = 1150.0
+offset_bottom = 509.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Player 2 Name"

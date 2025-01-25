@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=8 format=3 uid="uid://bi38mugybmfl0"]
 
 [ext_resource type="Script" path="res://Scripts/debug_bubble_spawner.gd" id="1_7vexg"]
 [ext_resource type="PackedScene" uid="uid://dthq8fdiqs16e" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
+[ext_resource type="Script" path="res://Scenes/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scenes/label.gd" id="4_em4yn"]
 [ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_poy5t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.6, 0.6)
@@ -17,10 +19,6 @@ zoom = Vector2(0.6, 0.6)
 [node name="Fan0_Area2D" parent="." instance=ExtResource("2_acuum")]
 position = Vector2(369, 294)
 rotation = 3.44528
-
-[node name="Fan1_Area2D2" parent="." instance=ExtResource("2_acuum")]
-position = Vector2(-376, -200)
-rotation = 0.183077
 
 [node name="Player 0" parent="." instance=ExtResource("4_t3qv7")]
 
@@ -48,6 +46,7 @@ offset_top = -279.0
 offset_right = 113.0
 offset_bottom = -256.0
 script = ExtResource("4_em4yn")
+playerIdentifier = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugBubbleSpawner" type="Node" parent="."]
