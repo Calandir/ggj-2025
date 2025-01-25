@@ -3,15 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://4hoxtlx5vb2r" path="res://Art/icon.svg" id="1_od4jm"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_wx3g0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7m7vh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjcks"]
+size = Vector2(128, 128)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
+motion_mode = 1
 script = ExtResource("1_wx3g0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_7m7vh")
-disabled = true
+shape = SubResource("RectangleShape2D_kjcks")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_od4jm")
