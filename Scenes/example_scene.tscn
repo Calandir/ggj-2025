@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bi38mugybmfl0"]
 
 [ext_resource type="PackedScene" uid="uid://dthq8fdiqs16e" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
-[ext_resource type="PackedScene" path="res://Scenes/Fan.tscn" id="2_acuum"]
+[ext_resource type="PackedScene" uid="uid://ctetupenyhqif" path="res://Scenes/Fan.tscn" id="2_acuum"]
 [ext_resource type="PackedScene" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scenes/label.gd" id="4_em4yn"]
 [ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
@@ -20,6 +20,7 @@ rotation = 3.44528
 [node name="Player 0" parent="." instance=ExtResource("4_t3qv7")]
 
 [node name="Player 1" parent="." instance=ExtResource("4_t3qv7")]
+position = Vector2(76.365, 0)
 player_num = 1
 
 [node name="GoalA" parent="." instance=ExtResource("3_m40s0")]
