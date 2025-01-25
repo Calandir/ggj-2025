@@ -12,9 +12,22 @@ var pickups_in_range: Array[FanPickup] = []
 
 var animated_sprite : AnimatedSprite2D
 
+var sprite_frames_map = {
+	0: "res://Resources/player_blue.tres",
+	1: "res://Resources/player_red.tres",
+}
+
 
 func _ready():
+	# Load sprites for given player
 	animated_sprite = $AnimatedSprite2D
+	var sprite_frame_path = sprite_frames_map.get(player_num)
+	var sprite_frames = load(sprite_frame_path)
+	if sprite_frames:
+		animated_sprite.frames = sprite_frames
+		animated_sprite.play()
+	else:
+		print('CRITICAL: Could not load player sprite frames: ', sprite_frame_path)
 
 
 func _process(delta):
