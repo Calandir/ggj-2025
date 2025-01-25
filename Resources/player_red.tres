@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://crll6eyh6npwd"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://crll6eyh6npwd"]
 
 [ext_resource type="Texture2D" uid="uid://c1v46sv2pecss" path="res://Art/red_player_sprite_sheet.png" id="1_j2n1i"]
 
@@ -6,25 +6,17 @@
 atlas = ExtResource("1_j2n1i")
 region = Rect2(0, 0, 300, 300)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_croju"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yonxc"]
 atlas = ExtResource("1_j2n1i")
-region = Rect2(0, 300, 300, 300)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_to8a4"]
-atlas = ExtResource("1_j2n1i")
-region = Rect2(900, 0, 300, 300)
+region = Rect2(300, 0, 300, 300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kt7t"]
 atlas = ExtResource("1_j2n1i")
 region = Rect2(600, 0, 300, 300)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jhg16"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_to8a4"]
 atlas = ExtResource("1_j2n1i")
-region = Rect2(300, 300, 300, 300)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yonxc"]
-atlas = ExtResource("1_j2n1i")
-region = Rect2(300, 0, 300, 300)
+region = Rect2(900, 0, 300, 300)
 
 [resource]
 resource_name = "player_red"
@@ -42,27 +34,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_tnhgx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_croju")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_to8a4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_croju")
+"texture": SubResource("AtlasTexture_yonxc")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1kt7t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jhg16")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yonxc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jhg16")
+"texture": SubResource("AtlasTexture_to8a4")
 }],
 "loop": true,
 "name": &"run",
-"speed": 14.0
+"speed": 7.0
 }]
