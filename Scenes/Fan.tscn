@@ -55,7 +55,7 @@ frame_progress = 0.928675
 
 [node name="Pickup_Area2D" type="Area2D" parent="AnimatedSprite2D" node_paths=PackedStringArray("pickup_root")]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 8
 script = ExtResource("3_s831a")
 pickup_root = NodePath("../..")
 
