@@ -11,3 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func check_score_is_game_over(goal_num: int, score: int) -> void:
+	print(goal_num, score)

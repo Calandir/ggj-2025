@@ -5,6 +5,7 @@ var score : int = 0
 var playername : String = ""
 @export var playerIdentifier: int = 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#print(Globalvars.player1_name)
@@ -27,9 +28,8 @@ func update_score():
 	#self.text = Globalvars.player1_name + " Score: " + str(score)
 
 
-func _on_goal_goal_scored() -> void:
-	score += 1
-	if playerIdentifier == 0:
+func _on_goal_goal_scored(goal_num: int, score: int) -> void:
+	if goal_num == 0:
 		self.text = Globalvars.player1_name + " Score: " + str(score)
 	else:
 		self.text = Globalvars.player2_name + " Score: " + str(score)
