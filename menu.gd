@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 func _on_start_button_pressed():
 	# Load the main game scene (replace "res://GameScene.tscn" with your scene's actual path)
-	print("here!")
+
 	Globalvars.player1_name = player1_name_input.text
 	Globalvars.player2_name = player2_name_input.text
 	

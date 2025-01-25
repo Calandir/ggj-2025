@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=10 format=3 uid="uid://bi38mugybmfl0"]
 
 [ext_resource type="Script" path="res://Scripts/debug_bubble_spawner.gd" id="1_7vexg"]
 [ext_resource type="PackedScene" uid="uid://dthq8fdiqs16e" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scenes/label.gd" id="4_em4yn"]
 [ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
+[ext_resource type="PackedScene" uid="uid://6kwoqoa8df76" path="res://Scenes/edge_wall.tscn" id="8_2ewpy"]
+[ext_resource type="Texture2D" uid="uid://bw0ubkqw6fdtb" path="res://Art/playing_field.png" id="9_nillc"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_poy5t")
@@ -15,10 +17,11 @@ script = ExtResource("1_poy5t")
 zoom = Vector2(0.6, 0.6)
 
 [node name="Bubble0_RigidBody2D" parent="." instance=ExtResource("1_b6d3v")]
+position = Vector2(-93, 371)
 
 [node name="Fan0_Area2D" parent="." instance=ExtResource("2_acuum")]
-position = Vector2(369, 294)
-rotation = 3.44528
+position = Vector2(-880, 431)
+rotation = -0.602139
 
 [node name="Player 0" parent="." instance=ExtResource("4_t3qv7")]
 
@@ -51,6 +54,40 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DebugBubbleSpawner" type="Node" parent="."]
 script = ExtResource("1_7vexg")
+
+[node name="EdgeWall" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(-76, -605)
+scale = Vector2(1.8, 1.8)
+
+[node name="EdgeWall2" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(-62, 505)
+scale = Vector2(1.8, 1.8)
+
+[node name="EdgeWall3" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(-940, -60)
+rotation = 1.5708
+
+[node name="EdgeWall4" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(1003, -60)
+rotation = 1.5708
+
+[node name="Fan0_Area2D2" parent="." instance=ExtResource("2_acuum")]
+position = Vector2(832, 435)
+rotation = 3.71755
+
+[node name="Fan0_Area2D3" parent="." instance=ExtResource("2_acuum")]
+position = Vector2(-846, -426)
+rotation = 0.607375
+
+[node name="Fan0_Area2D4" parent="." instance=ExtResource("2_acuum")]
+position = Vector2(832, -427)
+rotation = 2.32827
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(13, 3)
+scale = Vector2(1.94678, 1.8875)
+texture = ExtResource("9_nillc")
 
 [connection signal="goal_scored" from="GoalA" to="GoalA/LabelA" method="_on_goal_goal_scored"]
 [connection signal="goal_scored" from="GoalB" to="GoalB/LabelB" method="_on_goal_goal_scored"]

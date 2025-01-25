@@ -24,12 +24,11 @@ func _process(delta: float) -> void:
 # Function to update the score and update the UI text
 func update_score():
 	Globalvars.player1_score += 1
-	self.text = Globalvars.player1_name + " Score: " + str(score)
+	#self.text = Globalvars.player1_name + " Score: " + str(score)
 
 
 func _on_goal_goal_scored() -> void:
 	score += 1
-	print("potato")
 	if playerIdentifier == 0:
 		self.text = Globalvars.player1_name + " Score: " + str(score)
 	else:

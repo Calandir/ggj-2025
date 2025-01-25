@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://6kwoqoa8df76"]
+
+[ext_resource type="Script" path="res://edge_wall.gd" id="1_h5om8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n2oa7"]
+friction = 0.02
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sr1l5"]
+size = Vector2(1158.5, 20)
+
+[node name="EdgeWall" type="StaticBody2D"]
+position = Vector2(529, -24)
+physics_material_override = SubResource("PhysicsMaterial_n2oa7")
+script = ExtResource("1_h5om8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(47, 29)
+shape = SubResource("RectangleShape2D_sr1l5")
