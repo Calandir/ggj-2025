@@ -10,27 +10,11 @@ var playername : String = ""
 func _ready() -> void:
 	#print(Globalvars.player1_name)
 	if playerIdentifier == 0:
-		self.text = Globalvars.player1_name + " Score: " + str(score)
+		self.text = Globalvars.player1_name
 	else:
-		self.text = Globalvars.player2_name + " Score: " + str(score)
-
-	pass # Replace with function body.
+		self.text = Globalvars.player2_name
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
-# Function to update the score and update the UI text
-func update_score():
-	Globalvars.player1_score += 1
-	#self.text = Globalvars.player1_name + " Score: " + str(score)
-
-
-func _on_goal_goal_scored(goal_num: int, score: int) -> void:
-	if goal_num == 0:
-		self.text = Globalvars.player1_name + " Score: " + str(score)
-	else:
-		self.text = Globalvars.player2_name + " Score: " + str(score)
-	
