@@ -8,7 +8,7 @@ const SPEED = 300.0
 @export var player_num: int = 0
 
 # Gets set while in range and/or picked up
-var pickup_in_range: Fan = null
+var pickups_in_range: Array[Fan] = []
 
 func _process(delta):
 	_process_pick_up()
@@ -18,21 +18,24 @@ func _process_pick_up():
 	if not Input.is_action_just_pressed(input_prefix + "_pick_up_down"):
 		return
 	
-	if not pickup_in_range:
+	if pickups_in_range.is_empty():
 		return
 	
-	if pickup_in_range._picked_up_by_player == self:
+	var first_pickup: Fan = pickups_in_range[0]
+	#print("first_pickup is " + first_pickup.name)
+	
+	if first_pickup._picked_up_by_player == self:
 		# Put it down
-		pickup_in_range._picked_up_by_player = null
-		pickup_in_range.reparent(get_parent())
+		first_pickup._picked_up_by_player = null
+		first_pickup.reparent(get_parent())
 	else:
-		# Try to pick it up
-		var is_picked_up_by_other_player = pickup_in_range._picked_up_by_player != null
+		# Try to pick it up if free
+		var is_picked_up_by_other_player = first_pickup._picked_up_by_player != null
 		if is_picked_up_by_other_player:
 			return
 		
-		pickup_in_range._picked_up_by_player = self
-		pickup_in_range.reparent(self)
+		first_pickup._picked_up_by_player = self
+		first_pickup.reparent(self)
 
 func _physics_process(delta):
 	var inputVector2 = _get_move_input()
@@ -52,9 +55,9 @@ func _process_rotation(input_direction: Vector2):
 		rotation_degrees = 90.0 + rad_to_deg(input_direction.angle())
 		
 		# Apply rotation to current pickup as well
-		if pickup_in_range != null and pickup_in_range._picked_up_by_player == self:
+		if not pickups_in_range.is_empty() and pickups_in_range[0]._picked_up_by_player == self:
 			# Undo the 90 degree compensation
-			pickup_in_range.global_rotation_degrees = rotation_degrees - 90
+			pickups_in_range[0].global_rotation_degrees = rotation_degrees - 90
 		
 		#print(str(input_direction) + " " + str(input_direction.angle()))
 

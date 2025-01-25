@@ -42,16 +42,25 @@ func _on_Area2D_body_entered(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.append(body)
 	elif body is Player:
-		if not body.pickup_in_range:
-			body.pickup_in_range = self
+		if _picked_up_by_player == body:
+			# Horrible hack: ignore event, it fires when picked up/down
+			return
+		
+		if not body.pickups_in_range.has(self):
+			#print(body.name + " has " + name + " in range")
+			body.pickups_in_range.append(self)
 
 
 func _on_Area2D_body_exited(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.erase(body)
 	elif body is Player:
-		if body.pickup_in_range == self:
-			body.pickup_in_range = null
+		if _picked_up_by_player == body:
+			# Horrible hack: ignore event, it fires when picked up/down
+			return
+			
+		#print(body.name + " has " + name + " NOT in range")
+		body.pickups_in_range.erase(self)
 
 
 func _push_bubble(bubble: RigidBody2D, delta: float) -> void:
