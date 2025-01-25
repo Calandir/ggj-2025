@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dln1ff7lrfbgq"]
+[gd_scene load_steps=3 format=3 uid="uid://dln1ff7lrfbgq"]
 
 [ext_resource type="Script" path="res://Scripts/bubble_spawner.gd" id="1_f1pxg"]
+[ext_resource type="AudioStream" uid="uid://b5v1i4jowyxn6" path="res://Audio/bubble_spawn.wav" id="2_edk37"]
 
 [node name="BubbleSpawner" type="Node2D" node_paths=PackedStringArray("_auto_spawn_topleft", "_auto_spawn_bottomRight", "_p0_spawn_topleft", "_p0_spawn_bottomRight", "_p1_spawn_topleft", "_p1_spawn_bottomRight")]
 script = ExtResource("1_f1pxg")
@@ -12,19 +13,22 @@ _p1_spawn_topleft = NodePath("p1_topleft")
 _p1_spawn_bottomRight = NodePath("p1_bottomright")
 
 [node name="p0_topleft" type="Node2D" parent="."]
-position = Vector2(-413, -459)
+position = Vector2(-413, -350)
 
 [node name="p0_bottomright" type="Node2D" parent="."]
 position = Vector2(-14, 491)
 
 [node name="p1_topleft" type="Node2D" parent="."]
-position = Vector2(60, -459)
+position = Vector2(60, -350)
 
 [node name="p1_bottomright" type="Node2D" parent="."]
 position = Vector2(413, 491)
 
 [node name="auto_topleft" type="Node2D" parent="."]
-position = Vector2(-128, -459)
+position = Vector2(-128, -350)
 
 [node name="auto_bottomright" type="Node2D" parent="."]
 position = Vector2(191, 491)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_edk37")
