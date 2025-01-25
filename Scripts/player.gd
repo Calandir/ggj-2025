@@ -49,7 +49,7 @@ func _process_pick_up():
 	if first_pickup._picked_up_by_player == self:
 		# Put it down
 		first_pickup._picked_up_by_player = null
-		first_pickup.pickup_root.reparent(get_parent())
+		first_pickup.pickup_root.reparent(get_parent().get_node("Fan_grp"))
 	else:
 		# Try to pick it up if free
 		var is_picked_up_by_other_player = first_pickup._picked_up_by_player != null

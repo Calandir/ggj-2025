@@ -21,10 +21,6 @@ zoom = Vector2(0.6, 0.6)
 
 [node name="BubbleSpawner" parent="." instance=ExtResource("3_1qkkd")]
 
-[node name="Fan0_Area2D" parent="." instance=ExtResource("2_acuum")]
-position = Vector2(-880, 431)
-rotation = -0.602139
-
 [node name="Player 0" parent="." instance=ExtResource("4_t3qv7")]
 
 [node name="Player 1" parent="." instance=ExtResource("4_t3qv7")]
@@ -69,18 +65,6 @@ script = ExtResource("4_em4yn")
 playerIdentifier = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Fan0_Area2D2" parent="." instance=ExtResource("2_acuum")]
-position = Vector2(832, 435)
-rotation = 3.71755
-
-[node name="Fan0_Area2D3" parent="." instance=ExtResource("2_acuum")]
-position = Vector2(-846, -426)
-rotation = 0.607375
-
-[node name="Fan0_Area2D4" parent="." instance=ExtResource("2_acuum")]
-position = Vector2(890, -467)
-rotation = 2.32827
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(9, 20)
@@ -123,6 +107,37 @@ scale = Vector2(0.26, 1)
 position = Vector2(-933, -379)
 rotation = 1.5708
 scale = Vector2(0.42, 1)
+
+[node name="PlayerWinsLabel" type="Label" parent="."]
+visible = false
+offset_left = -802.0
+offset_top = -294.0
+offset_right = 792.0
+offset_bottom = 389.0
+pivot_offset = Vector2(75, 25)
+theme_override_fonts/font = ExtResource("6_nxpui")
+theme_override_font_sizes/font_size = 150
+text = "player wins!"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Fan_grp" type="Node2D" parent="."]
+
+[node name="Fan0_Area2D" parent="Fan_grp" instance=ExtResource("2_acuum")]
+position = Vector2(-880, 431)
+rotation = -0.602139
+
+[node name="Fan0_Area2D2" parent="Fan_grp" instance=ExtResource("2_acuum")]
+position = Vector2(832, 435)
+rotation = -2.56564
+
+[node name="Fan0_Area2D3" parent="Fan_grp" instance=ExtResource("2_acuum")]
+position = Vector2(-846, -426)
+rotation = 0.607375
+
+[node name="Fan0_Area2D4" parent="Fan_grp" instance=ExtResource("2_acuum")]
+position = Vector2(890, -467)
+rotation = 2.32827
 
 [connection signal="goal_scored" from="GoalA" to="." method="check_score_is_game_over"]
 [connection signal="goal_scored" from="GoalA" to="GoalA/LabelA" method="_on_goal_goal_scored"]
