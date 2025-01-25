@@ -1,3 +1,4 @@
+class_name Fan
 extends Area2D
 
 
@@ -19,6 +20,8 @@ var fan_max_range: float = 670.0
 # Keep track of bubbles in current fan area.
 var _bubbles_in_fan  = []
 
+# To make sure only one player can pick this up at once
+var _picked_up_by_player: Player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,11 +41,17 @@ func _process(delta: float) -> void:
 func _on_Area2D_body_entered(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.append(body)
+	elif body is Player:
+		if not body.pickup_in_range:
+			body.pickup_in_range = self
 
 
 func _on_Area2D_body_exited(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.erase(body)
+	elif body is Player:
+		if body.pickup_in_range == self:
+			body.pickup_in_range = null
 
 
 func _push_bubble(bubble: RigidBody2D, delta: float) -> void:
