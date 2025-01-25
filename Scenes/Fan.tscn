@@ -1,14 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://bww2ytek0n024"]
+[gd_scene load_steps=7 format=3 uid="uid://bww2ytek0n024"]
 
 [ext_resource type="Script" path="res://Scripts/fan.gd" id="1_cdjk6"]
-[ext_resource type="Texture2D" uid="uid://uehfqq46wyvw" path="res://Art/fan-temp-art.jpg" id="2_dnb1t"]
+[ext_resource type="Texture2D" uid="uid://cwngcfkylc1te" path="res://Art/Fan-Final-Art.png" id="2_sfcpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if032"]
+atlas = ExtResource("2_sfcpr")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gktjl"]
+atlas = ExtResource("2_sfcpr")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyf1d"]
+atlas = ExtResource("2_sfcpr")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fr20a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if032")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gktjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyf1d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Fan0_Area2D" type="Area2D"]
 script = ExtResource("1_cdjk6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.08, 0.2)
-texture = ExtResource("2_dnb1t")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_fr20a")
+autoplay = "default"
+frame_progress = 0.928675
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 50, 600, 200, 615, 0, 600, -200, 0, -50)
