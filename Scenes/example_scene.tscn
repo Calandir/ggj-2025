@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
-[ext_resource type="PackedScene" uid="uid://c5v01720aq21b" path="res://Scenes/bgm.tscn" id="2_tjefg"]
-[ext_resource type="PackedScene" uid="uid://dln1ff7lrfbgq" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
+[ext_resource type="PackedScene" path="res://Scenes/bgm.tscn" id="2_tjefg"]
+[ext_resource type="PackedScene" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scripts/label.gd" id="4_em4yn"]
 [ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
@@ -48,6 +48,7 @@ metadata/_edit_use_anchors_ = true
 [node name="GoalB" parent="." instance=ExtResource("3_m40s0")]
 position = Vector2(983, -2.00001)
 scale = Vector2(1.5, 1.5)
+goal_num = 1
 
 [node name="CollisionShape2D" parent="GoalB" index="0"]
 position = Vector2(-16.3338, -1)
@@ -123,7 +124,9 @@ position = Vector2(-933, -379)
 rotation = 1.5708
 scale = Vector2(0.42, 1)
 
+[connection signal="goal_scored" from="GoalA" to="." method="check_score_is_game_over"]
 [connection signal="goal_scored" from="GoalA" to="GoalA/LabelA" method="_on_goal_goal_scored"]
+[connection signal="goal_scored" from="GoalB" to="." method="check_score_is_game_over"]
 [connection signal="goal_scored" from="GoalB" to="GoalB/LabelB" method="_on_goal_goal_scored"]
 
 [editable path="GoalB"]

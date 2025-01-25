@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 
 
 func check_score_is_game_over(goal_num: int, score: int) -> void:
-	print(goal_num, score)
+	print("checking game over: ", goal_num, score)

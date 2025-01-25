@@ -23,5 +23,6 @@ func _on_Area2D_body_entered(body):
 	if body is RigidBody2D:
 		score += 1
 		body.queue_free()
+		print(goal_num, score)
 		emit_signal("goal_scored", goal_num, score)
 	
