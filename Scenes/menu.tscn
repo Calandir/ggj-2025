@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6xt6h1205gbq"]
+[gd_scene load_steps=3 format=3 uid="uid://c7xm4iofktrx0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_rnsg8"]
+[ext_resource type="FontFile" uid="uid://bsnjt655pqfy5" path="res://Resources/CursedTimerUlil-Aznm.ttf" id="2_fl752"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -20,6 +21,7 @@ offset_left = 163.0
 offset_top = 58.0
 offset_right = 736.144
 offset_bottom = 230.832
+theme_override_fonts/font = ExtResource("2_fl752")
 theme_override_font_sizes/font_size = 60
 text = "START"
 
