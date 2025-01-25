@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dln1ff7lrfbgq"]
 
-[ext_resource type="Script" path="res://Scripts/debug_bubble_spawner.gd" id="1_f1pxg"]
+[ext_resource type="Script" path="res://Scripts/bubble_spawner.gd" id="1_f1pxg"]
 
 [node name="BubbleSpawner" type="Node2D" node_paths=PackedStringArray("_p0_spawn_topleft", "_p0_spawn_bottomRight", "_p1_spawn_topleft", "_p1_spawn_bottomRight")]
 script = ExtResource("1_f1pxg")
