@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/bubble_spawner.gd" id="1_f1pxg"]
 
-[node name="BubbleSpawner" type="Node2D" node_paths=PackedStringArray("_p0_spawn_topleft", "_p0_spawn_bottomRight", "_p1_spawn_topleft", "_p1_spawn_bottomRight")]
+[node name="BubbleSpawner" type="Node2D" node_paths=PackedStringArray("_auto_spawn_topleft", "_auto_spawn_bottomRight", "_p0_spawn_topleft", "_p0_spawn_bottomRight", "_p1_spawn_topleft", "_p1_spawn_bottomRight")]
 script = ExtResource("1_f1pxg")
+_auto_spawn_topleft = NodePath("auto_topleft")
+_auto_spawn_bottomRight = NodePath("auto_bottomright")
 _p0_spawn_topleft = NodePath("p0_topleft")
 _p0_spawn_bottomRight = NodePath("p0_bottomright")
 _p1_spawn_topleft = NodePath("p1_topleft")
@@ -20,3 +22,9 @@ position = Vector2(60, -459)
 
 [node name="p1_bottomright" type="Node2D" parent="."]
 position = Vector2(413, 491)
+
+[node name="auto_topleft" type="Node2D" parent="."]
+position = Vector2(-128, -459)
+
+[node name="auto_bottomright" type="Node2D" parent="."]
+position = Vector2(191, 491)
