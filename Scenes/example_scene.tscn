@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/debug_bubble_spawner.gd" id="1_7vexg"]
 [ext_resource type="PackedScene" uid="uid://dthq8fdiqs16e" path="res://Scenes/Bubble.tscn" id="1_b6d3v"]
-[ext_resource type="Script" path="res://Scenes/example_scene.gd" id="1_poy5t"]
+[ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
-[ext_resource type="Script" path="res://Scenes/label.gd" id="4_em4yn"]
+[ext_resource type="Script" path="res://Scripts/label.gd" id="4_em4yn"]
 [ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
 [ext_resource type="PackedScene" uid="uid://cvijw2frdg63b" path="res://Scenes/edge_wall.tscn" id="8_2ewpy"]
 [ext_resource type="Texture2D" uid="uid://bw0ubkqw6fdtb" path="res://Art/playing_field.png" id="9_nillc"]
