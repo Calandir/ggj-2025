@@ -48,9 +48,6 @@ func _process_pick_up():
 func _physics_process(delta):
 	var inputVector2 = _get_move_input()
 
-	print('here')
-	print(animated_sprite.animation)
-
 	# Update animation state
 	if inputVector2.is_zero_approx():
 		animated_sprite.animation = "default"
