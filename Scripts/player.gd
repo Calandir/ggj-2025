@@ -48,11 +48,13 @@ func _physics_process(delta):
 
 func _process_rotation(input_direction: Vector2):
 	if not input_direction.is_zero_approx():
+		# Add 90 because the sprite looks normal when moving up, not right
 		rotation_degrees = 90.0 + rad_to_deg(input_direction.angle())
 		
 		# Apply rotation to current pickup as well
 		if pickup_in_range != null and pickup_in_range._picked_up_by_player == self:
-			pickup_in_range.rotation_degrees = rotation_degrees
+			# Undo the 90 degree compensation
+			pickup_in_range.global_rotation_degrees = rotation_degrees - 90
 		
 		#print(str(input_direction) + " " + str(input_direction.angle()))
 
