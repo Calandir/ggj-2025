@@ -64,22 +64,6 @@ metadata/_edit_use_anchors_ = true
 [node name="DebugBubbleSpawner" type="Node" parent="."]
 script = ExtResource("1_7vexg")
 
-[node name="EdgeWall" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(-35, -599)
-scale = Vector2(1.8, 1.8)
-
-[node name="EdgeWall2" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(-14, 499)
-scale = Vector2(1.8, 1.8)
-
-[node name="EdgeWall3" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(-928, -739)
-rotation = 1.5708
-
-[node name="EdgeWall4" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(995, -754)
-rotation = 1.5708
-
 [node name="Fan0_Area2D2" parent="." instance=ExtResource("2_acuum")]
 position = Vector2(832, 435)
 rotation = 3.71755
@@ -98,13 +82,42 @@ position = Vector2(9, 20)
 scale = Vector2(1.92908, 1.87854)
 texture = ExtResource("9_nillc")
 
-[node name="EdgeWall5" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(-934, 679)
+[node name="Walls_grp" type="Node2D" parent="."]
+
+[node name="N_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(-35, -599)
+scale = Vector2(1.8, 1.8)
+
+[node name="S_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(-14, 499)
+scale = Vector2(1.8, 1.8)
+
+[node name="NE_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(977, -752)
 rotation = 1.5708
 
-[node name="EdgeWall6" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(994, 664)
+[node name="E_Goal_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(1029, 2)
 rotation = 1.5708
+scale = Vector2(0.25, 1)
+
+[node name="SW_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(-933, 662)
+rotation = 1.5708
+
+[node name="SE_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(977.97, 649)
+rotation = 1.5708
+
+[node name="S_Goal_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(-971, -5)
+rotation = 1.5708
+scale = Vector2(0.26, 1)
+
+[node name="NW_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(-933, -379)
+rotation = 1.5708
+scale = Vector2(0.42, 1)
 
 [connection signal="goal_scored" from="GoalA" to="GoalA/LabelA" method="_on_goal_goal_scored"]
 [connection signal="goal_scored" from="GoalB" to="GoalB/LabelB" method="_on_goal_goal_scored"]
