@@ -28,7 +28,7 @@ position = Vector2(76.365, 0)
 player_num = 1
 
 [node name="GoalA" parent="." instance=ExtResource("3_m40s0")]
-position = Vector2(-981, 10)
+position = Vector2(-923.17, 59.34)
 scale = Vector2(1.5, 1.5)
 
 [node name="LabelA" type="Label" parent="GoalA"]
@@ -42,7 +42,7 @@ script = ExtResource("4_em4yn")
 metadata/_edit_use_anchors_ = true
 
 [node name="GoalB" parent="." instance=ExtResource("3_m40s0")]
-position = Vector2(983, -2.00001)
+position = Vector2(937.17, 59.34)
 scale = Vector2(1.5, 1.5)
 goal_num = 1
 
@@ -74,39 +74,38 @@ texture = ExtResource("9_nillc")
 [node name="Walls_grp" type="Node2D" parent="."]
 
 [node name="N_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-35, -599)
+position = Vector2(-35, -479)
 scale = Vector2(1.8, 1.8)
 
 [node name="S_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-14, 499)
+position = Vector2(4, 520)
 scale = Vector2(1.8, 1.8)
 
 [node name="NE_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(977, -752)
+position = Vector2(914.49, -688.27)
+rotation = 1.5708
+
+[node name="NW_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
+position = Vector2(-832.65, -688.27)
 rotation = 1.5708
 
 [node name="E_Goal_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(1029, 2)
+position = Vector2(951.65, 38)
 rotation = 1.5708
 scale = Vector2(0.25, 1)
 
 [node name="SW_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-933, 662)
+position = Vector2(-832.65, 710.36)
 rotation = 1.5708
 
 [node name="SE_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(977.97, 649)
+position = Vector2(905.77, 710.36)
 rotation = 1.5708
 
 [node name="S_Goal_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-971, -5)
+position = Vector2(-873, 28)
 rotation = 1.5708
 scale = Vector2(0.26, 1)
-
-[node name="NW_EdgeWall" parent="Walls_grp" instance=ExtResource("8_2ewpy")]
-position = Vector2(-933, -379)
-rotation = 1.5708
-scale = Vector2(0.42, 1)
 
 [node name="PlayerWinsLabel" type="Label" parent="."]
 visible = false
