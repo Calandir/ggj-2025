@@ -4,8 +4,6 @@ extends Area2D
 
 var score = 0
 
-@onready var score_label = get_node("Label")  # Adjust path to your ScoreManager node
-
 
 
 # Called when the node enters the scene tree for the first time.
