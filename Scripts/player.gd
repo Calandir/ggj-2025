@@ -3,7 +3,8 @@ extends CharacterBody2D
 
 const TURN_WITH_SEPARATE_CONTROLS: bool = false
 
-const SPEED = 300.0
+const SPEED = 600.0
+const SPEED_WITH_PICKUP = 300.0
 
 @export var player_num: int = 0
 
@@ -84,7 +85,8 @@ func _process_rotation(input_direction: Vector2):
 		rotation_degrees = 90.0 + rad_to_deg(input_direction.angle())
 		
 		# Apply rotation to current pickup as well
-		if not pickups_in_range.is_empty() and pickups_in_range[0]._picked_up_by_player == self:
+		var current_pickup = _get_currently_picked_up()
+		if current_pickup and current_pickup._picked_up_by_player == self:
 			# Undo the 90 degree compensation
 			pickups_in_range[0].pickup_root.global_rotation_degrees = rotation_degrees - 90
 		
@@ -99,7 +101,10 @@ func _get_move_input() -> Vector2:
 		input_prefix + "_up",
 		input_prefix + "_down")
 	
-	return input_direction * SPEED
+	if not _get_currently_picked_up():
+		return input_direction * SPEED
+	else:
+		return input_direction * SPEED_WITH_PICKUP
 
 func _get_look_input() -> Vector2:
 	var input_prefix = "p" + str(player_num)
@@ -111,3 +116,13 @@ func _get_look_input() -> Vector2:
 		input_prefix + "_look_down")
 	
 	return input_direction * SPEED
+
+func _get_currently_picked_up() -> FanPickup:
+	if pickups_in_range.is_empty():
+		return null
+	
+	var first_pickup = pickups_in_range[0]
+	if first_pickup._picked_up_by_player != self:
+		return null
+	
+	return first_pickup
