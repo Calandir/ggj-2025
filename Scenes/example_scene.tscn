@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
 [ext_resource type="PackedScene" path="res://Scenes/bgm.tscn" id="2_tjefg"]
-[ext_resource type="PackedScene" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
+[ext_resource type="PackedScene" uid="uid://dln1ff7lrfbgq" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scripts/label.gd" id="4_em4yn"]
 [ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
@@ -34,10 +34,10 @@ position = Vector2(-923.17, 59.34)
 scale = Vector2(1.5, 1.5)
 
 [node name="LabelA_Player" type="Label" parent="GoalA"]
-offset_left = 908.113
-offset_top = -384.893
-offset_right = 1190.11
-offset_bottom = -329.893
+offset_left = 902.78
+offset_top = -386.893
+offset_right = 1184.78
+offset_bottom = -331.893
 pivot_offset = Vector2(105.334, 22.6666)
 size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("6_nxpui")
