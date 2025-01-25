@@ -14,7 +14,7 @@ var fan_turbulence_mult: float = 2.0
 var noise: FastNoiseLite
 
 # Fan will only push bubble that are in range given by this value.
-var fan_max_range: float = 650.0
+var fan_max_range: float = 670.0
 
 # Keep track of bubbles in current fan area.
 var _bubbles_in_fan  = []
@@ -39,25 +39,26 @@ func _on_Area2D_body_entered(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.append(body)
 
+
 func _on_Area2D_body_exited(body) -> void:
 	if body is RigidBody2D:
 		_bubbles_in_fan.erase(body)
 
 
 func _push_bubble(bubble: RigidBody2D, delta: float) -> void:
-	# Strength of fan is based on how close bubble is to the fan.
+	# Strength of fan is calculated based on how close bubble is to the fan.
 	var fan_bubble_vec2 = self.global_position - bubble.global_position
 	var distance_from_fan = sqrt(fan_bubble_vec2.x ** 2 + fan_bubble_vec2.y ** 2)
-	var fan_strength = max((fan_max_range - distance_from_fan) / fan_max_range * wind_force, 0.0)
+	var falloff = smoothstep(fan_max_range, 0.0, distance_from_fan)
+	var fan_strength = wind_force * falloff
 
 	# Get the fan force vector based on the rotation of the fan.
-	var fan_rotation_angle = self.global_rotation  # radians
+	var turbulence_rot = noise.get_noise_1d(distance_from_fan) * fan_turbulence_mult
+	# Apply some random noise to the direction to simulate air currents.
+	var fan_rotation_angle = self.global_rotation + turbulence_rot
 	var fan_force_vec2 = Vector2(cos(fan_rotation_angle), sin(fan_rotation_angle))
 
-	# Apply some random variance in the direction to simulate air currents.
-	var random_rot = noise.get_noise_1d(distance_from_fan) * fan_turbulence_mult
-
 	# Apply the final fan force vector to the bubble.
-	var fan_force_actual = (fan_force_vec2 * fan_strength * delta).rotated(random_rot)
+	var fan_force_actual = (fan_force_vec2 * fan_strength * delta)
 
 	bubble.apply_impulse(fan_force_actual)
