@@ -35,9 +35,9 @@ scale = Vector2(1.5, 1.5)
 
 [node name="LabelA_Player" type="Label" parent="GoalA"]
 offset_left = 902.78
-offset_top = -386.893
+offset_top = -383.56
 offset_right = 1184.78
-offset_bottom = -331.893
+offset_bottom = -328.56
 pivot_offset = Vector2(105.334, 22.6666)
 size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("6_nxpui")
@@ -73,9 +73,9 @@ flip_h = true
 
 [node name="LabelB_Player" type="Label" parent="GoalB"]
 offset_left = -1182.78
-offset_top = -386.893
+offset_top = -387.56
 offset_right = -900.78
-offset_bottom = -331.893
+offset_bottom = -332.56
 theme_override_fonts/font = ExtResource("6_nxpui")
 theme_override_font_sizes/font_size = 40
 vertical_alignment = 2
