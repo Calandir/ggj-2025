@@ -13,11 +13,14 @@
 zoom = Vector2(0.6, 0.6)
 
 [node name="Bubble0_RigidBody2D" parent="." instance=ExtResource("1_b6d3v")]
-gravity_scale = 0.0
 
 [node name="Fan0_Area2D" parent="." instance=ExtResource("2_acuum")]
 position = Vector2(369, 294)
 rotation = 3.44528
+
+[node name="Fan1_Area2D2" parent="." instance=ExtResource("2_acuum")]
+position = Vector2(-376, -200)
+rotation = 0.183077
 
 [node name="Player 0" parent="." instance=ExtResource("4_t3qv7")]
 
