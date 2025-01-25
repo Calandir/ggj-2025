@@ -123,19 +123,19 @@ autowrap_mode = 1
 [node name="Fan_grp" type="Node2D" parent="."]
 
 [node name="Fan0_Area2D" parent="Fan_grp" instance=ExtResource("2_acuum")]
-position = Vector2(-880, 431)
+position = Vector2(-735, 456)
 rotation = -0.602139
 
 [node name="Fan0_Area2D2" parent="Fan_grp" instance=ExtResource("2_acuum")]
-position = Vector2(832, 435)
+position = Vector2(742, 435)
 rotation = -2.56564
 
 [node name="Fan0_Area2D3" parent="Fan_grp" instance=ExtResource("2_acuum")]
-position = Vector2(-846, -426)
+position = Vector2(-746, -305)
 rotation = 0.607375
 
 [node name="Fan0_Area2D4" parent="Fan_grp" instance=ExtResource("2_acuum")]
-position = Vector2(890, -467)
+position = Vector2(778, -331)
 rotation = 2.32827
 
 [connection signal="goal_scored" from="GoalA" to="." method="check_score_is_game_over"]
