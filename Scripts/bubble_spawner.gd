@@ -58,3 +58,5 @@ func _spawn_bubble_in_area(topleft_corner: Node2D, bottomright_corner: Node2D):
 		child.scale = Vector2(scale, scale)
 	
 	get_tree().root.add_child(new_bubble)
+
+	$AudioStreamPlayer2D.play()

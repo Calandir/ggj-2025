@@ -19,6 +19,10 @@ config/icon="res://Art/icon.svg"
 
 Globalvars="*res://Scripts/globalvars.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 p0_left={

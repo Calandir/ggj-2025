@@ -1,21 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=12 format=3 uid="uid://bi38mugybmfl0"]
 
 [ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
 [ext_resource type="PackedScene" path="res://Scenes/bgm.tscn" id="2_tjefg"]
-[ext_resource type="PackedScene" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
+[ext_resource type="PackedScene" uid="uid://dln1ff7lrfbgq" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scripts/label.gd" id="4_em4yn"]
 [ext_resource type="PackedScene" uid="uid://d2886r8qbijju" path="res://Scenes/player.tscn" id="4_t3qv7"]
 [ext_resource type="FontFile" uid="uid://bsnjt655pqfy5" path="res://Resources/CursedTimerUlil-Aznm.ttf" id="6_nxpui"]
 [ext_resource type="PackedScene" uid="uid://cvijw2frdg63b" path="res://Scenes/edge_wall.tscn" id="8_2ewpy"]
+[ext_resource type="Script" path="res://Scripts/label_score.gd" id="8_qulw1"]
 [ext_resource type="Texture2D" uid="uid://bw0ubkqw6fdtb" path="res://Art/playing_field.png" id="9_nillc"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_poy5t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.6, 0.6)
+position = Vector2(4, 23)
+zoom = Vector2(0.585, 0.585)
 
 [node name="BGM" parent="." instance=ExtResource("2_tjefg")]
 
@@ -31,15 +33,31 @@ player_num = 1
 position = Vector2(-923.17, 59.34)
 scale = Vector2(1.5, 1.5)
 
-[node name="LabelA" type="Label" parent="GoalA"]
-offset_left = 34.0
-offset_top = -442.0
-offset_right = 316.0
-offset_bottom = -387.0
+[node name="LabelA_Player" type="Label" parent="GoalA"]
+offset_left = 902.78
+offset_top = -383.56
+offset_right = 1184.78
+offset_bottom = -328.56
+pivot_offset = Vector2(105.334, 22.6666)
+size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("6_nxpui")
 theme_override_font_sizes/font_size = 40
+horizontal_alignment = 2
+vertical_alignment = 1
 script = ExtResource("4_em4yn")
 metadata/_edit_use_anchors_ = true
+
+[node name="LabelA_Score" type="Label" parent="GoalA"]
+offset_left = 648.78
+offset_top = -389.56
+offset_right = 738.78
+offset_bottom = -318.56
+theme_override_colors/font_color = Color(1, 0.964706, 0.701961, 1)
+theme_override_fonts/font = ExtResource("6_nxpui")
+theme_override_font_sizes/font_size = 60
+text = "0"
+vertical_alignment = 1
+script = ExtResource("8_qulw1")
 
 [node name="GoalB" parent="." instance=ExtResource("3_m40s0")]
 position = Vector2(937.17, 59.34)
@@ -53,17 +71,30 @@ position = Vector2(-16.3338, -1)
 position = Vector2(-28, 5.24521e-06)
 flip_h = true
 
-[node name="LabelB" type="Label" parent="GoalB"]
-offset_left = -306.0
-offset_top = -431.333
-offset_right = -24.0
-offset_bottom = -376.333
+[node name="LabelB_Player" type="Label" parent="GoalB"]
+offset_left = -1182.78
+offset_top = -387.56
+offset_right = -900.78
+offset_bottom = -332.56
 theme_override_fonts/font = ExtResource("6_nxpui")
 theme_override_font_sizes/font_size = 40
 vertical_alignment = 2
 script = ExtResource("4_em4yn")
 playerIdentifier = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="LabelB_Score" type="Label" parent="GoalB"]
+offset_left = -710.113
+offset_top = -389.56
+offset_right = -620.113
+offset_bottom = -318.56
+theme_override_colors/font_color = Color(1, 0.964706, 0.701961, 1)
+theme_override_fonts/font = ExtResource("6_nxpui")
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("8_qulw1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
@@ -139,8 +170,8 @@ position = Vector2(778, -331)
 rotation = 2.32827
 
 [connection signal="goal_scored" from="GoalA" to="." method="check_score_is_game_over"]
-[connection signal="goal_scored" from="GoalA" to="GoalA/LabelA" method="_on_goal_goal_scored"]
+[connection signal="goal_scored" from="GoalA" to="GoalA/LabelA_Score" method="_on_goal_goal_scored"]
 [connection signal="goal_scored" from="GoalB" to="." method="check_score_is_game_over"]
-[connection signal="goal_scored" from="GoalB" to="GoalB/LabelB" method="_on_goal_goal_scored"]
+[connection signal="goal_scored" from="GoalB" to="GoalB/LabelB_Score" method="_on_goal_goal_scored"]
 
 [editable path="GoalB"]
