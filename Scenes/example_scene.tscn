@@ -30,7 +30,7 @@ position = Vector2(76.365, 0)
 player_num = 1
 
 [node name="GoalA" parent="." instance=ExtResource("3_m40s0")]
-position = Vector2(-923.17, 59.34)
+position = Vector2(-917, 59)
 scale = Vector2(1.5, 1.5)
 
 [node name="LabelA_Player" type="Label" parent="GoalA"]
