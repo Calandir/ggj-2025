@@ -8,7 +8,7 @@ const SPEED = 300.0
 @export var player_num: int = 0
 
 # Gets set while in range and/or picked up
-var pickups_in_range: Array[Fan] = []
+var pickups_in_range: Array[FanPickup] = []
 
 var animated_sprite : AnimatedSprite2D
 
@@ -29,13 +29,13 @@ func _process_pick_up():
 	if pickups_in_range.is_empty():
 		return
 	
-	var first_pickup: Fan = pickups_in_range[0]
+	var first_pickup: FanPickup = pickups_in_range[0]
 	#print("first_pickup is " + first_pickup.name)
 	
 	if first_pickup._picked_up_by_player == self:
 		# Put it down
 		first_pickup._picked_up_by_player = null
-		first_pickup.reparent(get_parent())
+		first_pickup.pickup_root.reparent(get_parent())
 	else:
 		# Try to pick it up if free
 		var is_picked_up_by_other_player = first_pickup._picked_up_by_player != null
@@ -43,13 +43,10 @@ func _process_pick_up():
 			return
 		
 		first_pickup._picked_up_by_player = self
-		first_pickup.reparent(self)
+		first_pickup.pickup_root.reparent(self)
 
 func _physics_process(delta):
 	var inputVector2 = _get_move_input()
-
-	print('here')
-	print(animated_sprite.animation)
 
 	# Update animation state
 	if inputVector2.is_zero_approx():
@@ -75,7 +72,7 @@ func _process_rotation(input_direction: Vector2):
 		# Apply rotation to current pickup as well
 		if not pickups_in_range.is_empty() and pickups_in_range[0]._picked_up_by_player == self:
 			# Undo the 90 degree compensation
-			pickups_in_range[0].global_rotation_degrees = rotation_degrees - 90
+			pickups_in_range[0].pickup_root.global_rotation_degrees = rotation_degrees - 90
 		
 		#print(str(input_direction) + " " + str(input_direction.angle()))
 
