@@ -17,3 +17,4 @@ shape = SubResource("RectangleShape2D_kjcks")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = ExtResource("2_yd5le")
+animation = &"run"
