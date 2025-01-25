@@ -30,24 +30,33 @@ position = Vector2(76.365, 0)
 player_num = 1
 
 [node name="GoalA" parent="." instance=ExtResource("3_m40s0")]
-position = Vector2(-530, -18)
+position = Vector2(-981, 10)
+scale = Vector2(1.5, 1.5)
 
 [node name="LabelA" type="Label" parent="GoalA"]
-offset_left = -33.0
-offset_top = -293.0
-offset_right = 249.0
-offset_bottom = -270.0
+offset_left = 34.0
+offset_top = -442.0
+offset_right = 316.0
+offset_bottom = -387.0
+theme_override_font_sizes/font_size = 40
 script = ExtResource("4_em4yn")
 metadata/_edit_use_anchors_ = true
 
 [node name="GoalB" parent="." instance=ExtResource("3_m40s0")]
-position = Vector2(542, -7)
+position = Vector2(983, -2.00001)
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" parent="GoalB" index="1"]
+position = Vector2(-28, 5.24521e-06)
+flip_h = true
 
 [node name="LabelB" type="Label" parent="GoalB"]
-offset_left = -169.0
-offset_top = -279.0
-offset_right = 113.0
-offset_bottom = -256.0
+offset_left = -306.0
+offset_top = -431.333
+offset_right = -24.0
+offset_bottom = -376.333
+theme_override_font_sizes/font_size = 40
+vertical_alignment = 2
 script = ExtResource("4_em4yn")
 playerIdentifier = 1
 metadata/_edit_use_anchors_ = true
@@ -56,19 +65,19 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("1_7vexg")
 
 [node name="EdgeWall" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(-76, -605)
+position = Vector2(-35, -599)
 scale = Vector2(1.8, 1.8)
 
 [node name="EdgeWall2" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(-62, 505)
+position = Vector2(-14, 499)
 scale = Vector2(1.8, 1.8)
 
 [node name="EdgeWall3" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(-940, -60)
+position = Vector2(-928, -739)
 rotation = 1.5708
 
 [node name="EdgeWall4" parent="." instance=ExtResource("8_2ewpy")]
-position = Vector2(1003, -60)
+position = Vector2(995, -754)
 rotation = 1.5708
 
 [node name="Fan0_Area2D2" parent="." instance=ExtResource("2_acuum")]
@@ -80,14 +89,24 @@ position = Vector2(-846, -426)
 rotation = 0.607375
 
 [node name="Fan0_Area2D4" parent="." instance=ExtResource("2_acuum")]
-position = Vector2(832, -427)
+position = Vector2(890, -467)
 rotation = 2.32827
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(13, 3)
-scale = Vector2(1.94678, 1.8875)
+position = Vector2(9, 20)
+scale = Vector2(1.92908, 1.87854)
 texture = ExtResource("9_nillc")
+
+[node name="EdgeWall5" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(-934, 679)
+rotation = 1.5708
+
+[node name="EdgeWall6" parent="." instance=ExtResource("8_2ewpy")]
+position = Vector2(994, 664)
+rotation = 1.5708
 
 [connection signal="goal_scored" from="GoalA" to="GoalA/LabelA" method="_on_goal_goal_scored"]
 [connection signal="goal_scored" from="GoalB" to="GoalB/LabelB" method="_on_goal_goal_scored"]
+
+[editable path="GoalB"]
