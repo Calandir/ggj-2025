@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rotkws4oyuy5"]
+[gd_scene load_steps=7 format=3 uid="uid://dthq8fdiqs16e"]
 
 [ext_resource type="Texture2D" uid="uid://u40r0c7xhdmk" path="res://Art/bubble_01.png" id="2_ty473"]
 
@@ -37,7 +37,8 @@ animations = [{
 [node name="Bubble0_RigidBody2D" type="RigidBody2D"]
 position = Vector2(-1, 180)
 mass = 0.1
-gravity_scale = -0.1
+gravity_scale = 0.0
+linear_damp = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0wiy4")

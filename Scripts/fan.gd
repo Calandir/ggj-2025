@@ -5,8 +5,13 @@ extends Area2D
 @export var fan_is_on: bool = false
 
 # Wind force at 0 distance from fan (will fall off the farther bubble is from fan).
-@export var wind_force: float = 60.0
+@export var wind_force: float = 100.0
 
+# Control how much random turbulence occurs when blowing bubble.
+var fan_turbulence_mult: float = 2.0
+
+# Noise generator.
+var noise: FastNoiseLite
 
 # Fan will only push bubble that are in range given by this value.
 var fan_max_range: float = 650.0
@@ -17,7 +22,11 @@ var _bubbles_in_fan  = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# Initialize noise generator
+	noise = FastNoiseLite.new()
+	noise.seed = int(randf() * 100000)
+	noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	noise.frequency = 0.005
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,6 +54,10 @@ func _push_bubble(bubble: RigidBody2D, delta: float) -> void:
 	var fan_rotation_angle = self.global_rotation  # radians
 	var fan_force_vec2 = Vector2(cos(fan_rotation_angle), sin(fan_rotation_angle))
 
+	# Apply some random variance in the direction to simulate air currents.
+	var random_rot = noise.get_noise_1d(distance_from_fan) * fan_turbulence_mult
+
 	# Apply the final fan force vector to the bubble.
-	var fan_force_actual = fan_force_vec2 * fan_strength * delta
+	var fan_force_actual = (fan_force_vec2 * fan_strength * delta).rotated(random_rot)
+
 	bubble.apply_impulse(fan_force_actual)
