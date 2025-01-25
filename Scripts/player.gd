@@ -10,8 +10,16 @@ const SPEED = 300.0
 # Gets set while in range and/or picked up
 var pickups_in_range: Array[Fan] = []
 
+var animated_sprite : AnimatedSprite2D
+
+
+func _ready():
+	animated_sprite = $AnimatedSprite2D
+
+
 func _process(delta):
 	_process_pick_up()
+
 		
 func _process_pick_up():
 	var input_prefix = "p" + str(player_num)
@@ -39,6 +47,16 @@ func _process_pick_up():
 
 func _physics_process(delta):
 	var inputVector2 = _get_move_input()
+
+	print('here')
+	print(animated_sprite.animation)
+
+	# Update animation state
+	if inputVector2.is_zero_approx():
+		animated_sprite.animation = "default"
+	else:
+		animated_sprite.animation = "run"
+		animated_sprite.play()
 	
 	velocity = inputVector2
 	
