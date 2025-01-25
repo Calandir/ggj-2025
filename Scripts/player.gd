@@ -57,6 +57,7 @@ func _process_pick_up():
 		
 		first_pickup._picked_up_by_player = self
 		first_pickup.pickup_root.reparent(self)
+		first_pickup.pickup_root.position = Vector2.ZERO
 
 func _physics_process(delta):
 	var inputVector2 = _get_move_input()
