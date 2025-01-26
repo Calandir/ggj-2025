@@ -4,8 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
-	Globalvars.game_active = true
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -13,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func check_score_is_game_over(goal_num: int, score: int) -> void:
-	if score == Globalvars.score_to_win:
+	if score >= Globalvars.score_to_win:
 		var win_group = $GameOverUI
 		var win_label = win_group.find_child("PlayerWinsLabel")
 		var player_name
@@ -49,7 +48,5 @@ func check_score_is_game_over(goal_num: int, score: int) -> void:
 		for child_node in get_tree().root.get_children():
 			if child_node is RigidBody2D:
 				child_node.queue_free()
-
-		Globalvars.game_active = false
 
 		$Whistle.play()

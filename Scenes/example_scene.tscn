@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
-[ext_resource type="PackedScene" uid="uid://c5v01720aq21b" path="res://Scenes/bgm.tscn" id="2_tjefg"]
-[ext_resource type="AudioStream" uid="uid://cmc0y6tx4t82w" path="res://Audio/whistle.wav" id="3_1llya"]
+[ext_resource type="PackedScene" path="res://Scenes/bgm.tscn" id="2_tjefg"]
 [ext_resource type="PackedScene" uid="uid://dln1ff7lrfbgq" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scripts/label.gd" id="4_em4yn"]
@@ -19,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cpmqs6e8x25j7" path="res://Art/button_no_hover.png" id="15_7q8l0"]
 [ext_resource type="Texture2D" uid="uid://c2yk2ltiamx3w" path="res://Art/winner_blue.png" id="16_s61gp"]
 [ext_resource type="Texture2D" uid="uid://2nwe210f3u1s" path="res://Art/winner_red.png" id="17_w7ppf"]
+[ext_resource type="AudioStream" uid="uid://cmc0y6tx4t82w" path="res://Audio/whistle.wav" id="19_42wlg"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_poy5t")
@@ -28,9 +28,6 @@ position = Vector2(4, 23)
 zoom = Vector2(0.585, 0.585)
 
 [node name="BGM" parent="." instance=ExtResource("2_tjefg")]
-
-[node name="Whistle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_1llya")
 
 [node name="BubbleSpawner" parent="." instance=ExtResource("3_1qkkd")]
 
@@ -210,6 +207,9 @@ texture = ExtResource("16_s61gp")
 [node name="RedWinsSprite" type="Sprite2D" parent="GameOverUI"]
 z_index = 1
 texture = ExtResource("17_w7ppf")
+
+[node name="Whistle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_42wlg")
 
 [connection signal="goal_scored" from="GoalA" to="." method="check_score_is_game_over"]
 [connection signal="goal_scored" from="GoalA" to="GoalA/LabelA_Score" method="_on_goal_goal_scored"]
