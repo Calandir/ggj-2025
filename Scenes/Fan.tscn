@@ -59,7 +59,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"new_animation",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_if032"]
@@ -111,6 +111,7 @@ scale = Vector2(0.520996, 0.720215)
 sprite_frames = SubResource("SpriteFrames_4xuyo")
 animation = &"new_animation"
 autoplay = "new_animation"
+frame_progress = 0.51861
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)

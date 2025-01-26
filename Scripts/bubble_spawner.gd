@@ -57,13 +57,13 @@ func _spawn_bubble_in_area(topleft_corner: Node2D, bottomright_corner: Node2D):
 		new_bubble.mass = 0.03
 		for child in new_bubble.get_children():
 			child.scale = Vector2(0.5, 0.5)
-	# 25% chance of big bubble
-	elif random < 0.75:
+	# 10% chance of big bubble
+	elif random < 0.6:
 		new_bubble.point_value = 3
 		new_bubble.mass = 0.5
 		for child in new_bubble.get_children():
 			child.scale = Vector2(1.3, 1.3)
-	# 25% chance of normal bubble
+	# 40% chance of normal bubble
 	else:
 		new_bubble.point_value = 2
 		new_bubble.mass = 0.15
