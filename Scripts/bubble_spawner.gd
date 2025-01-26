@@ -20,7 +20,7 @@ var _time_until_next_bubble: float = 0.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("debug_spawn_bubble"):
-		get_tree().root.add_child(bubble_scene.instantiate())
+		_spawn_bubble_in_area(_auto_spawn_topleft, _auto_spawn_bottomRight)
 	
 	if USE_AUTO_SPAWN:
 		_process_auto_spawn(delta)
