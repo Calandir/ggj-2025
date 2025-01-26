@@ -1,15 +1,9 @@
 extends Node2D
 
 
-@export var score_to_win: int = 20
-
-
-var win_label
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	win_label = $PlayerWinsLabel
 
 	Globalvars.game_active = true
 
@@ -19,18 +13,26 @@ func _process(delta: float) -> void:
 
 
 func check_score_is_game_over(goal_num: int, score: int) -> void:
-	if score == score_to_win:
+	if score == Globalvars.score_to_win:
+		var win_group = $GameOverUI
+		var win_label = win_group.find_child("PlayerWinsLabel")
 		var player_name
 		var losing_player
+		var player_1_win_screen = win_group.find_child("BlueWinsSprite")
+		var player_2_win_screen = win_group.find_child("RedWinsSprite")
 		if goal_num:
 			player_name = Globalvars.player1_name
 			losing_player = $"Player 1"
+			player_1_win_screen.show()
+			player_2_win_screen.hide()
 		else:
 			player_name = Globalvars.player2_name
 			losing_player = $"Player 0"
+			player_2_win_screen.show()
+			player_1_win_screen.hide()
 
-		win_label.text = player_name + " WINS!"
-		win_label.show()
+		win_group.show()
+		win_label.text = player_name
 
 		# Hide losing player and fans for winning player to enjoy their moment.
 		losing_player.hide()
