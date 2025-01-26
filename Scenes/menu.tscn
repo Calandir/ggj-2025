@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7xm4iofktrx0"]
+[gd_scene load_steps=18 format=3 uid="uid://c7xm4iofktrx0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_rnsg8"]
 [ext_resource type="FontFile" uid="uid://bsnjt655pqfy5" path="res://Resources/CursedTimerUlil-Aznm.ttf" id="2_fl752"]
@@ -6,8 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://oggxlc01snpc" path="res://Art/play_hover.png" id="3_glqw1"]
 [ext_resource type="Texture2D" uid="uid://cy6ppu0qbbym4" path="res://Art/title_screen.png" id="3_tsqhi"]
 [ext_resource type="AudioStream" uid="uid://cj3as06lsfiac" path="res://Audio/title.ogg" id="4_fv6c4"]
+[ext_resource type="Texture2D" uid="uid://bqwpd6td10ufe" path="res://Art/namebox.png" id="5_3qwvm"]
 [ext_resource type="Texture2D" uid="uid://bisme7d7hwfwn" path="res://Art/credits_button.png" id="7_1iatj"]
 [ext_resource type="Texture2D" uid="uid://cxq7nfkj5kn3u" path="res://Art/credits_hover.png" id="8_u5na2"]
+
+[sub_resource type="Theme" id="Theme_clrrq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x45tv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ni7m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nfrid"]
+
+[sub_resource type="Theme" id="Theme_4o258"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sj6lt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58171"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n240i"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -36,26 +53,53 @@ stretch_mode = 0
 [node name="LineEdit1" type="LineEdit" parent="."]
 top_level = true
 layout_mode = 0
-offset_left = 786.0
-offset_top = 573.0
-offset_right = 1046.0
-offset_bottom = 633.0
+offset_left = 799.0
+offset_top = 575.0
+offset_right = 1059.0
+offset_bottom = 635.0
+theme = SubResource("Theme_clrrq")
+theme_override_colors/font_placeholder_color = Color(0.306923, 0.306923, 0.306923, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_fl752")
 theme_override_font_sizes/font_size = 30
-placeholder_text = "Player 2 Name"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x45tv")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_2ni7m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nfrid")
+placeholder_text = "   P2 Name"
+selecting_enabled = false
+
+[node name="Sprite2D" type="Sprite2D" parent="LineEdit1"]
+z_index = -1
+position = Vector2(122, 30)
+scale = Vector2(1.1166, 1)
+texture = ExtResource("5_3qwvm")
 
 [node name="LineEdit2" type="LineEdit" parent="."]
 top_level = true
 layout_mode = 0
-offset_left = 787.0
-offset_top = 495.0
-offset_right = 1047.0
-offset_bottom = 555.0
+offset_left = 799.0
+offset_top = 483.0
+offset_right = 1059.0
+offset_bottom = 543.0
+theme = SubResource("Theme_4o258")
+theme_override_colors/font_placeholder_color = Color(0.28485, 0.28485, 0.28485, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_fl752")
 theme_override_font_sizes/font_size = 30
-placeholder_text = "Player 1 Name"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sj6lt")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_58171")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n240i")
+placeholder_text = "   P1 NAME"
+
+[node name="Sprite2D" type="Sprite2D" parent="LineEdit2"]
+z_index = -1
+position = Vector2(120, 29)
+scale = Vector2(1.1166, 1)
+texture = ExtResource("5_3qwvm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(577, 324)
 scale = Vector2(0.61, 0.655)
 texture = ExtResource("3_tsqhi")
