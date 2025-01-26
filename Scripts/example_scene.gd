@@ -4,13 +4,14 @@ extends Node2D
 @export var score_to_win: int = 20
 
 
-var win_label 
+var win_label
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	win_label = $PlayerWinsLabel
 
+	Globalvars.game_active = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -37,3 +38,5 @@ func check_score_is_game_over(goal_num: int, score: int) -> void:
 		var fan_grp = $Fan_grp
 		fan_grp.hide()
 		fan_grp.set_process(false)
+
+		Globalvars.game_active = false
