@@ -1,8 +1,66 @@
-[gd_scene load_steps=9 format=3 uid="uid://bww2ytek0n024"]
+[gd_scene load_steps=18 format=3 uid="uid://bww2ytek0n024"]
 
 [ext_resource type="Script" path="res://Scripts/fan.gd" id="1_cdjk6"]
+[ext_resource type="Texture2D" uid="uid://6wivd50bc2t1" path="res://Art/Wind_Art.png" id="2_qmjsc"]
 [ext_resource type="Texture2D" uid="uid://cwngcfkylc1te" path="res://Art/Fan-Final-Art.png" id="2_sfcpr"]
 [ext_resource type="Script" path="res://Scripts/fan_pickup.gd" id="3_s831a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnpdv"]
+atlas = ExtResource("2_qmjsc")
+region = Rect2(0, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj4r8"]
+atlas = ExtResource("2_qmjsc")
+region = Rect2(768, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5l1e"]
+atlas = ExtResource("2_qmjsc")
+region = Rect2(1536, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tibg1"]
+atlas = ExtResource("2_qmjsc")
+region = Rect2(2304, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssgpx"]
+atlas = ExtResource("2_qmjsc")
+region = Rect2(3072, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c45yj"]
+atlas = ExtResource("2_qmjsc")
+region = Rect2(3840, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_583pu"]
+atlas = ExtResource("2_qmjsc")
+region = Rect2(4608, 0, 768, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xuyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnpdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj4r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5l1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tibg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssgpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c45yj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_583pu")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_if032"]
 atlas = ExtResource("2_sfcpr")
@@ -45,6 +103,14 @@ script = ExtResource("1_cdjk6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fan0_Area2D"]
 polygon = PackedVector2Array(0, 50, 600, 200, 615, 0, 600, -200, 0, -50)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fan0_Area2D"]
+position = Vector2(318.938, 3.93744)
+rotation = 1.5708
+scale = Vector2(0.520996, 0.720215)
+sprite_frames = SubResource("SpriteFrames_4xuyo")
+animation = &"new_animation"
+autoplay = "new_animation"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
