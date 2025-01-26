@@ -26,8 +26,8 @@ func _process(delta: float) -> void:
 		
 
 func _on_Area2D_body_entered(body):
-	if body is RigidBody2D:
-		score += 1
+	if body is Bubble:
+		score += body.point_value
 		body.queue_free()
 		emit_signal("goal_scored", goal_num, score)
 		_play_cheer_sfx()

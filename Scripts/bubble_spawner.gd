@@ -45,17 +45,28 @@ func _process_manual_spawn():
 func _spawn_bubble_in_area(topleft_corner: Node2D, bottomright_corner: Node2D):
 	var spawn_point = Vector2(randf_range(topleft_corner.position.x, bottomright_corner.position.x), randf_range(topleft_corner.position.y, bottomright_corner.position.y))
 	
-	var new_bubble: RigidBody2D = bubble_scene.instantiate()
+	var new_bubble: Bubble = bubble_scene.instantiate()
 	new_bubble.position = spawn_point
 	print(spawn_point)
 	
-	var scaleLerp = randf()
+	var random = randf()
 	
-	var scale = lerpf(0.5, 1.3, scaleLerp)
-	new_bubble.mass = lerpf(0.03, 0.5, scaleLerp)
-	
-	for child in new_bubble.get_children():
-		child.scale = Vector2(scale, scale)
+	# 50% chance of small bubble
+	if random < 0.5:
+		new_bubble.point_value = 1
+		new_bubble.mass = 0.03
+		for child in new_bubble.get_children():
+			child.scale = Vector2(0.5, 0.5)
+	# 25% chance of big bubble
+	elif random < 0.75:
+		new_bubble.point_value = 3
+		new_bubble.mass = 0.5
+		for child in new_bubble.get_children():
+			child.scale = Vector2(1.3, 1.3)
+	# 25% chance of normal bubble
+	else:
+		new_bubble.point_value = 2
+		new_bubble.mass = 0.15
 	
 	get_tree().root.add_child(new_bubble)
 

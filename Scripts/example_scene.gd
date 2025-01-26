@@ -41,6 +41,15 @@ func check_score_is_game_over(goal_num: int, score: int) -> void:
 		fan_grp.hide()
 		fan_grp.set_process(false)
 
+		# Disable spawning of bubbles
+		var bubble_spawner = $BubbleSpawner
+		bubble_spawner.set_process(false)
+
+		# Delete any bubbles
+		for child_node in get_tree().root.get_children():
+			if child_node is RigidBody2D:
+				child_node.queue_free()
+
 		Globalvars.game_active = false
 
 		$Whistle.play()

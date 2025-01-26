@@ -1,3 +1,4 @@
+class_name Bubble
 extends RigidBody2D
 
 
@@ -6,6 +7,7 @@ var noise: FastNoiseLite
 
 var ambient_motion_force: float = 1.5
 
+var point_value: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
