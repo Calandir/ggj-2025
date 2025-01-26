@@ -52,7 +52,7 @@ placeholder_text = "Player 1 Name"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(577, 324)
-scale = Vector2(0.599236, 0.642964)
+scale = Vector2(0.61, 0.655)
 texture = ExtResource("3_tsqhi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
