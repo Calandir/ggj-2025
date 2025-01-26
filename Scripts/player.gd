@@ -18,6 +18,9 @@ var sprite_frames_map = {
 	1: "res://Resources/player_red.tres",
 }
 
+var fan_pick_up_sfx: Resource = preload("res://Audio/fan_pick_up2.wav")
+var fan_put_down_sfx: Resource = preload("res://Audio/fan_put_down.wav")
+
 
 func _ready():
 	# Load sprites for given player
@@ -50,6 +53,8 @@ func _process_pick_up():
 		# Put it down
 		first_pickup._picked_up_by_player = null
 		first_pickup.pickup_root.reparent(get_parent().get_node("Fan_grp"))
+		$AudioStreamPlayer2D.stream = fan_put_down_sfx
+		$AudioStreamPlayer2D.play()
 	else:
 		# Try to pick it up if free
 		var is_picked_up_by_other_player = first_pickup._picked_up_by_player != null
@@ -59,6 +64,8 @@ func _process_pick_up():
 		first_pickup._picked_up_by_player = self
 		first_pickup.pickup_root.reparent(self)
 		first_pickup.pickup_root.position = Vector2.ZERO
+		$AudioStreamPlayer2D.stream = fan_pick_up_sfx
+		$AudioStreamPlayer2D.play()
 
 func _physics_process(delta):
 	var inputVector2 = _get_move_input()
