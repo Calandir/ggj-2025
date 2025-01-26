@@ -42,3 +42,5 @@ func check_score_is_game_over(goal_num: int, score: int) -> void:
 		fan_grp.set_process(false)
 
 		Globalvars.game_active = false
+
+		$Whistle.play()
