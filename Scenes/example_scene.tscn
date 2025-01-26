@@ -218,11 +218,13 @@ offset_top = -431.0
 offset_bottom = -291.0
 
 [node name="TooltipA" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(-390, -331)
 texture = ExtResource("21_7oj4o")
 script = ExtResource("22_gn813")
 
 [node name="TooltipB" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(360, 368)
 texture = ExtResource("22_4b8p7")
 script = ExtResource("22_gn813")
