@@ -1,6 +1,8 @@
 extends Control
 
 @onready var start_button = $Button
+
+@onready var credits_button = $CreditsButton
 @onready var player2_name_input = $LineEdit1  # Reference to Player 1's LineEdit
 @onready var player1_name_input = $LineEdit2
 
@@ -10,7 +12,12 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_button.pressed.connect(_on_start_button_pressed)
+	credits_button.pressed.connect(_on_credits_button_pressed)
 	pass # Replace with function body.
+
+func _on_credits_button_pressed():
+	var game_scene = load("res://Scenes/credits.tscn")  # Use the path to your game scene
+	get_tree().change_scene_to_packed(game_scene)
 	
 	
 func _on_start_button_pressed():
