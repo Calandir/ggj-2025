@@ -45,7 +45,7 @@ func check_score_is_game_over(goal_num: int, score: int) -> void:
 		bubble_spawner.set_process(false)
 
 		# Delete any bubbles
-		for child_node in get_tree().root.get_children():
+		for child_node in get_tree().root.get_node("MainScene").get_children():
 			if child_node is RigidBody2D:
 				child_node.queue_free()
 
