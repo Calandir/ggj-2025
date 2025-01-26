@@ -68,6 +68,6 @@ func _spawn_bubble_in_area(topleft_corner: Node2D, bottomright_corner: Node2D):
 		new_bubble.point_value = 2
 		new_bubble.mass = 0.15
 	
-	get_tree().root.add_child(new_bubble)
+	add_child(new_bubble)
 
 	$AudioStreamPlayer2D.play()
