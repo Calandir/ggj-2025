@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 	
 
 func _on_pressed():
-	print("im alive!")
+	
 	var game_scene = load("res://Scenes/menu.tscn")
 	get_tree().change_scene_to_packed(game_scene)
