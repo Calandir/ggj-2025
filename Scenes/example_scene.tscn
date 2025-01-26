@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=20 format=3 uid="uid://bi38mugybmfl0"]
 
 [ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
-[ext_resource type="PackedScene" path="res://Scenes/bgm.tscn" id="2_tjefg"]
+[ext_resource type="PackedScene" uid="uid://c5v01720aq21b" path="res://Scenes/bgm.tscn" id="2_tjefg"]
+[ext_resource type="AudioStream" uid="uid://cmc0y6tx4t82w" path="res://Audio/whistle.wav" id="3_1llya"]
 [ext_resource type="PackedScene" uid="uid://dln1ff7lrfbgq" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scripts/label.gd" id="4_em4yn"]
@@ -27,6 +28,9 @@ position = Vector2(4, 23)
 zoom = Vector2(0.585, 0.585)
 
 [node name="BGM" parent="." instance=ExtResource("2_tjefg")]
+
+[node name="Whistle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1llya")
 
 [node name="BubbleSpawner" parent="." instance=ExtResource("3_1qkkd")]
 
