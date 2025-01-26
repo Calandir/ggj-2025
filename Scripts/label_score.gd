@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_goal_goal_scored(goal_num: int, score: int) -> void:
-	# Score == 20 is a hack to get around sync issues on final goal of round.
-	if Globalvars.game_active or score == 20:
+	# Score == score_to_win is a hack to get around sync issues on final goal of round.
+	if Globalvars.game_active or score == Globalvars.score_to_win:
 		self.text = str(score)

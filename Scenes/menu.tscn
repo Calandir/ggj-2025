@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7xm4iofktrx0"]
+[gd_scene load_steps=5 format=3 uid="uid://c7xm4iofktrx0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_rnsg8"]
 [ext_resource type="FontFile" uid="uid://bsnjt655pqfy5" path="res://Resources/CursedTimerUlil-Aznm.ttf" id="2_fl752"]
-[ext_resource type="Texture2D" uid="uid://cm6fyk6vy86ve" path="res://Art/title_screen.png" id="3_tsqhi"]
+[ext_resource type="Texture2D" uid="uid://cy6ppu0qbbym4" path="res://Art/title_screen.png" id="3_tsqhi"]
+[ext_resource type="AudioStream" uid="uid://cj3as06lsfiac" path="res://Audio/title.ogg" id="4_fv6c4"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -53,3 +54,8 @@ placeholder_text = "Player 1 Name"
 position = Vector2(577, 324)
 scale = Vector2(0.599236, 0.642964)
 texture = ExtResource("3_tsqhi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fv6c4")
+volume_db = -5.0
+autoplay = true
