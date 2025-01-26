@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7xm4iofktrx0"]
+[gd_scene load_steps=9 format=3 uid="uid://c7xm4iofktrx0"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_rnsg8"]
 [ext_resource type="FontFile" uid="uid://bsnjt655pqfy5" path="res://Resources/CursedTimerUlil-Aznm.ttf" id="2_fl752"]
+[ext_resource type="Texture2D" uid="uid://b343yios23c01" path="res://Art/play_button.png" id="2_kqkfy"]
+[ext_resource type="Texture2D" uid="uid://oggxlc01snpc" path="res://Art/play_hover.png" id="3_glqw1"]
 [ext_resource type="Texture2D" uid="uid://cy6ppu0qbbym4" path="res://Art/title_screen.png" id="3_tsqhi"]
 [ext_resource type="AudioStream" uid="uid://cj3as06lsfiac" path="res://Audio/title.ogg" id="4_fv6c4"]
+[ext_resource type="Texture2D" uid="uid://bisme7d7hwfwn" path="res://Art/credits_button.png" id="7_1iatj"]
+[ext_resource type="Texture2D" uid="uid://cxq7nfkj5kn3u" path="res://Art/credits_hover.png" id="8_u5na2"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -14,19 +18,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rnsg8")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="TextureButton" parent="."]
 top_level = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.203
 anchor_bottom = 0.241
-offset_left = 803.0
-offset_top = 290.0
-offset_right = 794.144
-offset_bottom = 222.832
-theme_override_fonts/font = ExtResource("2_fl752")
-theme_override_font_sizes/font_size = 60
-text = "START"
+offset_left = 799.0
+offset_top = 219.0
+offset_right = 735.144
+offset_bottom = 238.832
+texture_normal = ExtResource("2_kqkfy")
+texture_hover = ExtResource("3_glqw1")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="LineEdit1" type="LineEdit" parent="."]
 top_level = true
@@ -60,13 +65,14 @@ stream = ExtResource("4_fv6c4")
 volume_db = -5.0
 autoplay = true
 
-[node name="CreditsButton" type="Button" parent="."]
+[node name="CreditsButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 563.0
-offset_right = 227.0
-offset_bottom = 623.0
-theme_override_fonts/font = ExtResource("2_fl752")
-theme_override_font_sizes/font_size = 30
+offset_left = 988.0
+offset_top = 256.0
+offset_right = 1139.0
+offset_bottom = 409.0
 action_mode = 0
-text = "CREDITS"
+texture_normal = ExtResource("7_1iatj")
+texture_hover = ExtResource("8_u5na2")
+ignore_texture_size = true
+stretch_mode = 0
