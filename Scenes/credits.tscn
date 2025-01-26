@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bswib54kx8xwv" path="res://Art/credits_screen.png" id="1_vokcs"]
 [ext_resource type="FontFile" uid="uid://bsnjt655pqfy5" path="res://Resources/CursedTimerUlil-Aznm.ttf" id="2_ndvuc"]
-[ext_resource type="Script" path="res://Scenes/button.gd" id="2_rewd0"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="2_rewd0"]
 
 [node name="credits" type="Node2D"]
 
