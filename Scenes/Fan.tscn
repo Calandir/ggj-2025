@@ -38,6 +38,7 @@ size = Vector2(151.999, 139.001)
 
 [node name="FanRoot" type="Node2D"]
 show_behind_parent = true
+z_index = -1
 
 [node name="Fan0_Area2D" type="Area2D" parent="."]
 script = ExtResource("1_cdjk6")
