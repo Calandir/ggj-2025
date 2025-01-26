@@ -8,11 +8,11 @@ var playername : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#print(Globalvars.player1_name)
+	#print(Globalvars.player2_name)
 	if playerIdentifier == 0:
-		self.text = Globalvars.player1_name
-	else:
 		self.text = Globalvars.player2_name
+	else:
+		self.text = Globalvars.player1_name
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

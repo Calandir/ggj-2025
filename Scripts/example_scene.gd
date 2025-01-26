@@ -20,12 +20,12 @@ func check_score_is_game_over(goal_num: int, score: int) -> void:
 		var player_1_win_screen = win_group.find_child("BlueWinsSprite")
 		var player_2_win_screen = win_group.find_child("RedWinsSprite")
 		if goal_num:
-			player_name = Globalvars.player2_name
+			player_name = Globalvars.player1_name
 			losing_player = $"Player 1"
 			player_1_win_screen.show()
 			player_2_win_screen.hide()
 		else:
-			player_name = Globalvars.player1_name
+			player_name = Globalvars.player2_name
 			losing_player = $"Player 0"
 			player_2_win_screen.show()
 			player_1_win_screen.hide()
