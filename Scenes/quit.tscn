@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xhtgali2ochg"]
+
+[ext_resource type="Texture2D" uid="uid://datenpyiv08gi" path="res://Art/exit.png" id="1_me5x6"]
+[ext_resource type="Script" path="res://Scripts/button_play_again.gd" id="2_2gt43"]
+
+[node name="Quit" type="TextureButton"]
+z_index = 2
+offset_left = -41.0
+offset_top = -434.0
+offset_right = 110.0
+offset_bottom = -294.0
+texture_normal = ExtResource("1_me5x6")
+script = ExtResource("2_2gt43")
+
+[connection signal="pressed" from="." to="." method="_on_pressed_no"]
