@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dthq8fdiqs16e"]
+[gd_scene load_steps=9 format=3 uid="uid://dthq8fdiqs16e"]
 
 [ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_1rhgi"]
 [ext_resource type="Texture2D" uid="uid://u40r0c7xhdmk" path="res://Art/bubble_01.png" id="2_ty473"]
+[ext_resource type="Script" path="res://Scripts/intro_anim.gd" id="3_6otc0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wiy4"]
 radius = 58.0
@@ -50,3 +51,6 @@ debug_color = Color(0.0156863, 0.592157, 0.745098, 0.611765)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 sprite_frames = SubResource("SpriteFrames_3s3ww")
 autoplay = "default"
+
+[node name="IntroTween" type="Node" parent="CollisionShape2D/AnimatedSprite2D"]
+script = ExtResource("3_6otc0")
