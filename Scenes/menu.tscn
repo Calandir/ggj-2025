@@ -59,3 +59,14 @@ texture = ExtResource("3_tsqhi")
 stream = ExtResource("4_fv6c4")
 volume_db = -5.0
 autoplay = true
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 563.0
+offset_right = 227.0
+offset_bottom = 623.0
+theme_override_fonts/font = ExtResource("2_fl752")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "CREDITS"
