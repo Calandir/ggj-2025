@@ -2,6 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://c2hqxr4k5jf2c" path="res://Audio/bgm.ogg" id="1_7smap"]
 
-[node name="BGM" type="AudioStreamPlayer2D"]
+[node name="BGM" type="AudioStreamPlayer"]
 stream = ExtResource("1_7smap")
+volume_db = -5.0
 autoplay = true
