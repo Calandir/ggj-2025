@@ -51,3 +51,5 @@ func check_score_is_game_over(goal_num: int, score: int) -> void:
 				child_node.queue_free()
 
 		Globalvars.game_active = false
+
+		$Whistle.play()
