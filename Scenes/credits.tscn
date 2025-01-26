@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://crx1epfm3x30"]
+
+[ext_resource type="Texture2D" uid="uid://bswib54kx8xwv" path="res://Art/credits_screen.png" id="1_vokcs"]
+[ext_resource type="Script" path="res://Scenes/button.gd" id="2_rewd0"]
+
+[node name="credits" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.16, 324.5)
+scale = Vector2(0.812804, 0.75)
+texture = ExtResource("1_vokcs")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 905.0
+offset_top = 26.0
+offset_right = 1127.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 30
+text = "BACK TO MAIN"
+script = ExtResource("2_rewd0")
