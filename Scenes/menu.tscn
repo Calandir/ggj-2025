@@ -66,7 +66,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x45tv")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_2ni7m")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nfrid")
-placeholder_text = "Player 1 Name"
+placeholder_text = "Player 2 Name"
 selecting_enabled = false
 
 [node name="Sprite2D" type="Sprite2D" parent="LineEdit1"]
@@ -90,7 +90,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sj6lt")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_58171")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n240i")
-placeholder_text = "Player 2 name"
+placeholder_text = "Player 1 name"
 
 [node name="Sprite2D" type="Sprite2D" parent="LineEdit2"]
 z_index = -1
