@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
-[ext_resource type="PackedScene" uid="uid://c5v01720aq21b" path="res://Scenes/bgm.tscn" id="2_tjefg"]
+[ext_resource type="PackedScene" path="res://Scenes/bgm.tscn" id="2_tjefg"]
 [ext_resource type="PackedScene" uid="uid://dln1ff7lrfbgq" path="res://Scenes/bubble_spawner.tscn" id="3_1qkkd"]
 [ext_resource type="PackedScene" uid="uid://b2na6tf1un6wr" path="res://Scenes/Goal.tscn" id="3_m40s0"]
 [ext_resource type="Script" path="res://Scripts/label.gd" id="4_em4yn"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/label_score.gd" id="8_qulw1"]
 [ext_resource type="Texture2D" uid="uid://bw0ubkqw6fdtb" path="res://Art/playing_field.png" id="9_nillc"]
 [ext_resource type="Texture2D" uid="uid://binxwl76mi8c2" path="res://Art/button_yes.png" id="12_ri3jq"]
-[ext_resource type="PackedScene" uid="uid://xhtgali2ochg" path="res://Scenes/quit.tscn" id="13_aid77"]
+[ext_resource type="PackedScene" path="res://Scenes/quit.tscn" id="13_aid77"]
 [ext_resource type="Texture2D" uid="uid://dhbcvp3pe72ya" path="res://Art/button_yes_hover.png" id="13_jcksq"]
 [ext_resource type="Texture2D" uid="uid://c0ik3cxkr65hg" path="res://Art/button_no.png" id="14_0et4h"]
 [ext_resource type="Script" path="res://Scripts/button_play_again.gd" id="14_osox6"]

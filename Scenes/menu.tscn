@@ -66,13 +66,13 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x45tv")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_2ni7m")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nfrid")
-placeholder_text = "   P2 Name"
+placeholder_text = "Player 1 Name"
 selecting_enabled = false
 
 [node name="Sprite2D" type="Sprite2D" parent="LineEdit1"]
 z_index = -1
-position = Vector2(122, 30)
-scale = Vector2(1.1166, 1)
+position = Vector2(126.375, 30)
+scale = Vector2(1.15119, 1)
 texture = ExtResource("5_3qwvm")
 
 [node name="LineEdit2" type="LineEdit" parent="."]
@@ -90,12 +90,12 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sj6lt")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_58171")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n240i")
-placeholder_text = "   P1 NAME"
+placeholder_text = "Player 2 name"
 
 [node name="Sprite2D" type="Sprite2D" parent="LineEdit2"]
 z_index = -1
-position = Vector2(120, 29)
-scale = Vector2(1.1166, 1)
+position = Vector2(125.375, 29)
+scale = Vector2(1.15909, 1)
 texture = ExtResource("5_3qwvm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
