@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bi38mugybmfl0"]
+[gd_scene load_steps=24 format=3 uid="uid://bi38mugybmfl0"]
 
 [ext_resource type="Script" path="res://Scripts/example_scene.gd" id="1_poy5t"]
 [ext_resource type="PackedScene" uid="uid://bww2ytek0n024" path="res://Scenes/Fan.tscn" id="2_acuum"]
@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://c2yk2ltiamx3w" path="res://Art/winner_blue.png" id="16_s61gp"]
 [ext_resource type="Texture2D" uid="uid://2nwe210f3u1s" path="res://Art/winner_red.png" id="17_w7ppf"]
 [ext_resource type="AudioStream" uid="uid://cmc0y6tx4t82w" path="res://Audio/whistle.wav" id="19_42wlg"]
+[ext_resource type="Texture2D" uid="uid://ccga8eg4vsrcd" path="res://Art/tooltipA.png" id="21_7oj4o"]
+[ext_resource type="Texture2D" uid="uid://da1fknkimj3ks" path="res://Art/tooltipB.png" id="22_4b8p7"]
+[ext_resource type="Script" path="res://Scripts/tooltip.gd" id="22_gn813"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_poy5t")
@@ -213,6 +216,17 @@ stream = ExtResource("19_42wlg")
 [node name="Quit" parent="." instance=ExtResource("13_aid77")]
 offset_top = -431.0
 offset_bottom = -291.0
+
+[node name="TooltipA" type="Sprite2D" parent="."]
+position = Vector2(-390, -331)
+texture = ExtResource("21_7oj4o")
+script = ExtResource("22_gn813")
+
+[node name="TooltipB" type="Sprite2D" parent="."]
+position = Vector2(360, 368)
+texture = ExtResource("22_4b8p7")
+script = ExtResource("22_gn813")
+player_num = 1
 
 [connection signal="goal_scored" from="GoalA" to="." method="check_score_is_game_over"]
 [connection signal="goal_scored" from="GoalA" to="GoalA/LabelA_Score" method="_on_goal_goal_scored"]
